@@ -1,0 +1,428 @@
+{%- style -%}
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  background-color: {{ section.settings.background_color }};
+}
+
+.testimonial-slider * {
+  user-select: none !important;
+}
+
+.testimonial-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-slider__track-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.testimonial-slider__track {
+  display: flex;
+  transition: transform 0.25s ease-out;
+  will-change: transform;
+  gap: {{ section.settings.desktop_gap | default: 24 }}px;
+  {% if section.blocks.size > 4 %}cursor: grab;{% endif %}
+}
+
+.testimonial-slide {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+}
+
+.testimonial-card {
+  background-color: {{ section.settings.card_background }};
+  {% if section.settings.enable_border_bottom %}
+  border-bottom: 4px solid {{ section.settings.card_border_color }};
+  {% endif %}
+}
+
+.testimonial-header h3 {
+  color: {{ section.settings.text_color }};
+}
+
+.testimonial-header time {
+  color: {{ section.settings.text_color }};
+}
+
+.testimonial-card p {
+  color: {{ section.settings.comment_text_color }};
+}
+
+.testimonial-stars .star.filled {
+  color: {{ section.settings.star_color }};
+}
+
+@media screen and (min-width: 724px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  .testimonial-slide {
+    flex: 0 0 calc(50% - {{ section.settings.desktop_gap | divided_by: 2 }}px);
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .testimonial-slide {
+    flex: 0 0 calc(33.333% - {{ section.settings.desktop_gap | divided_by: 3 }}px);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .testimonial-slide {
+    flex: 0 0 calc(25% - 13px);
+  }
+}
+{%- endstyle -%}
+
+<div class="testimonial-slider-wrapper section-{{ section.id }}-padding {% if section.settings.enable_page_width %}page-width{% endif %}">
+  <div class="testimonial-slider"
+       data-per-page-desktop="4"
+       data-per-page-mobile="1"
+       data-gap="{{ section.settings.desktop_gap | default: 24 }}"
+       data-auto-slide="{{ section.settings.auto_slide }}"
+       data-slide-speed="{{ section.settings.slide_speed }}">
+    <div class="testimonial-slider__track-wrapper">
+      <div class="testimonial-slider__track">
+        {% for block in section.blocks %}
+          <div class="testimonial-slide" {{ block.shopify_attributes }}>
+            <div class="testimonial-card">
+              <div class="testimonial-header">
+                <h3>{{ block.settings.name }}</h3>
+                <time datetime="{{ block.settings.date }}">{{ block.settings.date }}</time>
+              </div>
+              {{ block.settings.comment }}
+              <div class="testimonial-stars">
+                {% for i in (1..5) %}
+                  <span class="star {% if i <= block.settings.rating %}filled{% endif %}">★</span>
+                {% endfor %}
+              </div>
+              {{ 'icon-marks.svg' | inline_asset_content }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% if section.blocks.size > 4 %}
+      <div class="testimonial-slider__nav">
+        <button class="prev-arrow">‹</button>
+        <button class="next-arrow">›</button>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.testimonial-slider');
+    const track = slider.querySelector('.testimonial-slider__track');
+    const slides = slider.querySelectorAll('.testimonial-slide');
+    const prevBtn = slider.querySelector('.prev-arrow');
+    const nextBtn = slider.querySelector('.next-arrow');
+
+    const perPageDesktop = parseInt(slider.dataset.perPageDesktop) || 4;
+    const perPageMobile = parseInt(slider.dataset.perPageMobile) || 1;
+    const autoSlideEnabled = slider.dataset.autoSlide === 'true';
+    const slideSpeed = (parseInt(slider.dataset.slideSpeed) || 5) * 1000;
+
+    let currentSlide = 0;
+    let interval;
+
+    const getSlidesPerPage = () => window.innerWidth >= 750 ? perPageDesktop : perPageMobile;
+
+    const updateSlider = () => {
+      const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(track).gap || 0);
+      const offset = slideWidth * currentSlide;
+      track.style.transform = `translateX(-${offset}px)`;
+    };
+
+    const goToNext = () => {
+      currentSlide++;
+      if (currentSlide > slides.length - getSlidesPerPage()) {
+        currentSlide = 0;
+      }
+      updateSlider();
+    };
+
+    const goToPrev = () => {
+      currentSlide--;
+      if (currentSlide < 0) {
+        currentSlide = slides.length - getSlidesPerPage();
+      }
+      updateSlider();
+    };
+
+    const resetInterval = () => {
+      if (!autoSlideEnabled) return;
+      clearInterval(interval);
+      interval = setInterval(goToNext, slideSpeed);
+    };
+
+    if (nextBtn && prevBtn) {
+      nextBtn.addEventListener('click', () => {
+        goToNext();
+        resetInterval();
+      });
+      prevBtn.addEventListener('click', () => {
+        goToPrev();
+        resetInterval();
+      });
+    }
+
+    let startX = 0;
+    let isDragging = false;
+
+    const handleStart = (x) => {
+      startX = x;
+      isDragging = true;
+    };
+
+    const handleEnd = (x) => {
+      if (!isDragging) return;
+      const delta = x - startX;
+      if (delta < -50) {
+        goToNext();
+      } else if (delta > 50) {
+        goToPrev();
+      }
+      isDragging = false;
+      resetInterval();
+    };
+
+    track.addEventListener('touchstart', (e) => handleStart(e.touches[0].clientX));
+    track.addEventListener('touchend', (e) => handleEnd(e.changedTouches[0].clientX));
+    track.addEventListener('mousedown', (e) => handleStart(e.clientX));
+    track.addEventListener('mouseup', (e) => handleEnd(e.clientX));
+    track.addEventListener('dragstart', e => e.preventDefault());
+
+    window.addEventListener('resize', updateSlider);
+    updateSlider();
+
+    if (autoSlideEnabled) {
+      interval = setInterval(goToNext, slideSpeed);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Testimonial Slide",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "max_blocks": 12,
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "checkbox",
+      "id": "enable_page_width",
+      "label": "Usar largura contida (page-width)",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "desktop_gap",
+      "label": "Espaçamento entre os blocos",
+      "min": 4,
+      "max": 32,
+      "step": 2,
+      "default": 16
+    },
+    
+    { "type": "header", "content": "Slider" },
+    {
+      "type": "checkbox",
+      "id": "auto_slide",
+      "label": "Ativar autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "slide_speed",
+      "min": 4,
+      "max": 20,
+      "step": 1,
+      "unit": "seg",
+      "label": "Velocidade do autoplay (segundos)",
+      "default": 5
+    },
+
+    { "type": "header", "content": "Cores" },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Cor de fundo da seção",
+      "default": "#F4F4F4"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Cor de fundo dos blocos",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Cor das estrelas",
+      "default": "#f4c000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Cor do nome",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "comment_text_color",
+      "label": "Cor do comentário",
+      "default": "#333333"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_border_bottom",
+      "label": "Exibir borda inferior nos cards",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Cor da borda inferior dos cards",
+      "default": "#a5ce39"
+    },
+    
+    { "type": "header", "content": "Preenchimento" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Acima",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Abaixo",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feedback_block",
+      "name": "Bloco de Avaliação",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Nome do cliente",
+          "default": "Nome Exemplo"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Data da avaliação",
+          "default": "01/01/2025"
+        },
+        {
+          "type": "richtext",
+          "id": "comment",
+          "label": "Comentário",
+          "default": "<p>Comentário do cliente aqui...</p>"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Estrelas",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial Slider",
+      "blocks": [
+          {
+          "type": "feedback_block",
+          "settings": {
+            "name": "Maria Pereira da Silva",
+            "date": "12/01/2025",
+            "comment": "<p>Gostei muito dos produtos, recomendo para todos que comprarem!</p>"
+          }
+        },
+        {
+          "type": "feedback_block",
+          "settings": {
+            "name": "João dos Santos",
+            "date": "21/01/2025",
+            "comment": "<p>Chegaram em poucos dias, valeu a pena!</p>"
+          }
+        },
+        {
+          "type": "feedback_block",
+          "settings": {
+            "name": "Reinaldo Gonçalves",
+            "date": "27/01/2025",
+            "comment": "<p>Vou recomendar a loja, comprei e em uma semana estava entregue em casa, excelente compra!</p>"
+          }
+        },
+        {
+          "type": "feedback_block",
+          "settings": {
+            "name": "Luana Pereira S.",
+            "date": "09/02/2025",
+            "comment": "<p>Fui muito bem atendida, desde o início até a entrega do pacote, recomendo!</p>"
+          }
+        },
+          {
+          "type": "feedback_block",
+          "settings": {
+            "name": "Maria Pereira da Silva",
+            "date": "12/01/2025",
+            "comment": "<p>Gostei muito dos produtos, recomendo para todos que comprarem!</p>"
+          }
+        },
+        {
+          "type": "feedback_block",
+          "settings": {
+            "name": "João dos Santos",
+            "date": "21/01/2025",
+            "comment": "<p>Chegaram em poucos dias, valeu a pena!</p>"
+          }
+        },
+        {
+          "type": "feedback_block",
+          "settings": {
+            "name": "Reinaldo Gonçalves",
+            "date": "27/01/2025",
+            "comment": "<p>Vou recomendar a loja, comprei e em uma semana estava entregue em casa, excelente compra!</p>"
+          }
+        },
+        {
+          "type": "feedback_block",
+          "settings": {
+            "name": "Luana Pereira S.",
+            "date": "09/02/2025",
+            "comment": "<p>Fui muito bem atendida, desde o início até a entrega do pacote, recomendo!</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

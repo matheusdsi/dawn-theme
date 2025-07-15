@@ -1,0 +1,173 @@
+{% if section.settings.text != blank %}
+  <style>
+    #shopify-section-{{ section.id }}{
+      padding-top:{{ section.settings.padding_top }}px;
+      padding-bottom:{{ section.settings.padding_bottom }}px;
+
+      {% if section.settings.section_bg_gradient != blank %}
+        background:{{ section.settings.section_bg_gradient }};
+      {% elsif section.settings.section_bg != blank %}
+        background:{{ section.settings.section_bg }};
+      {% endif %}
+
+      --st-font:
+        {% case section.settings.text_size %}
+          {% when 'xsmall' %}var(--font-heading-scale-xs,1.125rem)
+          {% when 'small'  %}var(--font-heading-scale-sm,2rem)
+          {% when 'medium' %}var(--font-heading-scale-md,3rem)
+          {% when 'large'  %}var(--font-heading-scale-lg,4.5rem)
+          {% else %}var(--font-heading-scale-xxl,6rem)
+        {% endcase %};
+
+      --st-gap:3.55em;
+      --st-speed-d:{{ section.settings.speed_desktop }}s;
+      --st-speed-m:{{ section.settings.speed_mobile }}s;
+      --st-shift:100%;
+    }
+
+    .st{overflow:hidden}
+    .st__track{
+      display:flex;
+      gap:var(--st-gap);
+      white-space:nowrap;
+      will-change:transform;
+      animation:st-loop var(--st-speed-d) linear infinite;
+    }
+    @media(max-width:767px){.st__track{animation-duration:var(--st-speed-m)}}
+    .st--scroll .st__track{animation:none}
+
+    .st__item{font-size:var(--st-font);white-space:nowrap}
+    {% if section.settings.text_style == 'outline' %}
+      .st__item{color:transparent;-webkit-text-stroke:1px {% if section.settings.text_color != blank %}{{ section.settings.text_color }}{% else %}currentColor{% endif %}}
+    {% else %}
+      {% if section.settings.text_gradient != blank %}
+        .st__item{background:{{ section.settings.text_gradient }};-webkit-background-clip:text;color:transparent}
+      {% elsif section.settings.text_color != blank %}
+        .st__item{color:{{ section.settings.text_color }}}
+      {% endif %}
+    {% endif %}
+
+    @keyframes st-loop{
+      from{transform:translateX(0)}
+      to  {transform:translateX(calc(-1*var(--st-shift)))}
+    }
+    @media(prefers-reduced-motion:reduce){.st__track{animation:none!important}}
+  </style>
+
+  {% capture txt %}
+    {% assign parts = section.settings.text | newline_to_br | split: '<br />' %}
+    {% for p in parts %}<span class="h1 st__item">{{ p }}</span>{% endfor %}
+  {% endcapture %}
+
+  <div class="st {% if section.settings.scrolling_mode == 'scroll' %}st--scroll{% else %}st--auto{% endif %}">
+    {% if section.settings.scrolling_mode == 'scroll' %}
+      <scrolling-track class="st__track" aria-hidden="true">{{ txt }}{{ txt }}{{ txt }}{{ txt }}{{ txt }}{{ txt }}{{ txt }}{{ txt }}{{ txt }}{{ txt }}{{ txt }}{{ txt }}{{ txt }}{{ txt }}{{ txt }}</scrolling-track>
+    {% else %}
+      <div class="st__track" data-auto aria-hidden="true">{{ txt }}</div>
+    {% endif %}
+  </div>
+{% endif %}
+
+<script>
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+  const ensureWidth = el => {
+    while (el.scrollWidth < window.innerWidth * 2.5)
+      el.insertAdjacentHTML('beforeend', el.innerHTML)
+  }
+
+  const baseDur = el =>
+    window.innerWidth < 768
+      ? parseFloat(getComputedStyle(el.parentElement).getPropertyValue('--st-speed-m'))
+      : parseFloat(getComputedStyle(el.parentElement).getPropertyValue('--st-speed-d'))
+
+  const setVars = el => {
+    el.style.setProperty('--st-shift', (el.scrollWidth / 2) + 'px')
+    el.style.animationDuration = baseDur(el) + 's'
+  }
+
+  const debounce = (fn, wait = 150) => {
+    let t; return () => { clearTimeout(t); t = setTimeout(fn, wait) }
+  }
+
+  document.querySelectorAll('[data-auto]').forEach(track => {
+    ensureWidth(track)
+    setVars(track)
+    window.addEventListener('resize', debounce(() => setVars(track)))
+  })
+
+  if (!customElements.get('scrolling-track')) {
+    customElements.define('scrolling-track', class extends HTMLElement {
+      connectedCallback(){
+        const t = this, wrap = t.parentElement
+
+        const updateShift = () => t.style.setProperty('--st-shift', (t.scrollWidth/2) + 'px')
+        updateShift()
+        window.addEventListener('resize', debounce(updateShift))
+
+        if ('ScrollTimeline' in window){
+          t.animate(
+            {transform:['translateX(0)','translateX(calc(-1*var(--st-shift)))']},
+            {timeline:new ViewTimeline({subject:wrap,axis:'block'}),fill:'both',duration:1}
+          )
+          return
+        }
+
+        const step = () => {
+          const r = wrap.getBoundingClientRect()
+          const k = Math.min(Math.max(0,1-(r.top/(window.innerHeight+r.height))),1)
+          t.style.transform = `translateX(${-(t.scrollWidth/2)*k}px)`
+          requestAnimationFrame(step)
+        }
+        requestAnimationFrame(step)
+      }
+    })
+  }
+})()
+</script>
+
+{% schema %}
+{
+  "name":"Scrolling text",
+  "tag":"section",
+  "class":"scrolling-text-section",
+  "settings":[
+    {"type":"textarea","id":"text","label":"Text","default":"your scrolling text here"},
+
+    {"type":"select","id":"text_size","label":"Text size","options":[
+      {"value":"xsmall","label":"Extra small"},
+      {"value":"small","label":"Small"},
+      {"value":"medium","label":"Medium"},
+      {"value":"large","label":"Large"},
+      {"value":"xlarge","label":"Extra large"}],"default":"medium"},
+
+    {"type":"select","id":"text_style","label":"Text style","options":[
+      {"value":"fill","label":"Filled"},
+      {"value":"outline","label":"Outlined"}],"default":"fill"},
+
+    {"type":"select","id":"scrolling_mode","label":"Mode","options":[
+      {"value":"scroll","label":"On scroll"},
+      {"value":"auto","label":"Continuous"}],"default":"auto"},
+
+    {"type":"header","content":"Velocities"},
+    {"type":"range","id":"speed_desktop","label":"Speed desktop (seconds per loop)",
+     "min":10,"max":120,"step":5,"unit":"s","default":45},
+    {"type":"range","id":"speed_mobile","label":"Speed mobile (seconds per loop)",
+     "min":5,"max":60,"step":5,"unit":"s","default":30},
+
+    {"type":"header","content":"Colors"},
+    {"type":"color","id":"section_bg","label":"Background color"},
+    {"type":"color_background","id":"section_bg_gradient","label":"Background gradient"},
+    {"type":"color","id":"text_color","label":"Text color"},
+    {"type":"color_background","id":"text_gradient","label":"Text gradient"},
+
+    {"type":"header","content":"Spacing"},
+    {"type":"range","id":"padding_top","label":"Padding top",
+     "min":0,"max":100,"step":4,"unit":"px","default":40},
+    {"type":"range","id":"padding_bottom","label":"Padding bottom",
+     "min":0,"max":100,"step":4,"unit":"px","default":40}
+  ],
+  "presets":[{"name":"Scrolling text"}]
+}
+{% endschema %}

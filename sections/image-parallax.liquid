@@ -1,0 +1,148 @@
+<style>
+  .section-{{ section.id }}.parallax-section {
+    position: relative;
+    overflow: hidden;
+    height: {{ section.settings.section_height }};
+  }
+
+  .section-{{ section.id }} .parallax-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    will-change: transform;
+    transform: translateY(0);
+    transition: transform 0.1s ease-out;
+  }
+
+  .section-{{ section.id }} .parallax-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: {{ section.settings.overlay_color }};
+    opacity: {{ section.settings.overlay_opacity }};
+    z-index: 1;
+  }
+
+  .section-{{ section.id }} .parallax-content {
+    position: relative;
+    z-index: 2;
+    color: {{ section.settings.text_color }};
+    padding: 5rem 1rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }} .parallax-content {
+      padding: 8rem 0;
+    }
+  }
+</style>
+
+<section class="section-{{ section.id }} parallax-section">
+  {% if section.settings.background_image != blank %}
+    <div
+      class="parallax-background"
+      style="background-image: url('{{ section.settings.background_image | img_url: 'master' }}');">
+    </div>
+    <div class="parallax-overlay"></div>
+  {% endif %}
+
+  <div class="parallax-content page-width">
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const section = document.querySelector(".section-{{ section.id }}");
+    if (!section) return;
+
+    const background = section.querySelector(".parallax-background");
+    if (!background) return;
+
+    const maxOffset = 100; // Limite em pixels para o quanto a imagem pode se mover para cima ou para baixo
+
+    function updateParallax() {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+      const scrollY = window.scrollY || window.pageYOffset;
+      const windowHeight = window.innerHeight;
+
+      // Verifica se a seção está visível na janela
+      const inView = scrollY + windowHeight > sectionTop && scrollY < sectionTop + sectionHeight;
+
+      if (inView) {
+        const distanceFromTop = scrollY + windowHeight - sectionTop;
+        const parallaxSpeed = 0.15;
+        let translateY = (distanceFromTop - windowHeight) * parallaxSpeed;
+
+        // Limita o valor de translateY
+        translateY = Math.max(-maxOffset, Math.min(maxOffset, translateY));
+
+        background.style.transform = `translateY(${translateY}px)`;
+      }
+
+      requestAnimationFrame(updateParallax);
+    }
+
+    requestAnimationFrame(updateParallax);
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "Image Parallax",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Imagem de Fundo"
+    },
+    {
+      "type": "text",
+      "id": "section_height",
+      "label": "Altura da Seção (ex: 500px ou 100vh)",
+      "default": "500px"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Cor do Overlay",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Opacidade do Overlay",
+      "min": 0,
+      "max": 1,
+      "step": 0.1,
+      "default": 0.5
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Cor do Texto",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Parallax",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
