@@ -630,6 +630,14 @@
                     price_class: 'price--large'
                   -%}
                 </div>
+
+        {%- if block.settings.mostrar_parcelamento -%}
+          <div class="parcelamento-sem-icone" style="font-size: {{ block.settings.parcelamento_font_size }}px;margin-top: -18px;">
+            {%- render 'installment', product: product, exibir_icone: fa''lse -%}
+          </div>
+        {%- endif -%}
+
+              
                 {%- if product.quantity_price_breaks_configured? -%}
                   <div class="volume-pricing-note" id="Volume-Note-{{ section.id }}">
                     <span>{{ 'products.product.volume_pricing.note' | t }}</span>
@@ -1552,7 +1560,27 @@
     {
       "type": "price",
       "name": "t:sections.main-product.blocks.price.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+  {
+    "type": "checkbox",
+    "id": "mostrar_parcelamento",
+    "default": true,
+    "label": "Exibir parcelamento abaixo do preço"
+  },
+{
+  "type": "range",
+  "id": "parcelamento_font_size",
+  "min": 8,
+  "max": 22,
+  "step": 2,
+  "unit": "px",
+  "default": 14,
+  "label": "Tamanho da fonte do parcelamento"
+}
+
+]
+
     },
     {
       "type": "sku",
@@ -1640,6 +1668,10 @@
             {
               "value": "dropdown",
               "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            { 
+              "value": "simple",
+              "label": "Imagem da variante" 
             },
             {
               "value": "button",

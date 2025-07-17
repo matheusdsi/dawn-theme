@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Slider System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(45deg, #1a1a2e, #16213e, #0f3460);
+        }
+
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transform: translateX(100%) rotateY(15deg) scale(0.9);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 0;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0) rotateY(0deg) scale(1);
+            z-index: 2;
+        }
+
+        .slide.prev {
+            transform: translateX(-100%) rotateY(-15deg) scale(0.9);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .slide.next {
+            transform: translateX(100%) rotateY(15deg) scale(0.9);
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .slide-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.7));
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .slide-text {
+            max-width: 600px;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s ease;
+            transition-delay: 0.3s;
+        }
+
+        .slide.active .slide-text {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .slide-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0, #fff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .slide-description {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .slide-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+            transition-delay: 0.6s;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        .slide.active .slide-button {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .slide-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.5);
+        }
+
+        /* Controles Avançados */
+        .controls {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .control-btn {
+            width: 60px;
+            height: 60px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .nav-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 70px;
+            height: 70px;
+            border: none;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-arrows:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev-btn { left: 2rem; }
+        .next-btn { right: 2rem; }
+
+        /* Indicadores */
+        .indicators {
+            position: absolute;
+            bottom: 6rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .indicator {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .indicator.active {
+            background: white;
+            transform: scale(1.2);
+        }
+
+        .indicator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .indicator.active::before {
+            left: 100%;
+        }
+
+        /* Controles de tela cheia */
+        .fullscreen-toggle {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 100;
+            font-size: 1.2rem;
+        }
+
+        .fullscreen-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        /* Modo tela cheia */
+        .slider-container.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+        }
+
+        .slider-container.fullscreen .slide {
+            border-radius: 0;
+        }
+
+        /* Autoplay progress */
+        .autoplay-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #ee5a24);
+            transition: width 0.1s linear;
+            z-index: 100;
+        }
+
+        /* Thumbnail navigation */
+        .thumbnail-nav {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 100;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 60px;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .thumbnail.active {
+            opacity: 1;
+            border-color: white;
+            transform: scale(1.1);
+        }
+
+        .thumbnail:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .controls {
+                bottom: 1rem;
+                gap: 0.5rem;
+            }
+
+            .control-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .nav-arrows {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .prev-btn { left: 1rem; }
+            .next-btn { right: 1rem; }
+
+            .thumbnail-nav {
+                display: none;
+            }
+
+            .slide-content {
+                padding: 1rem;
+            }
+
+            .indicators {
+                bottom: 4rem;
+                gap: 0.5rem;
+            }
+
+            .indicator {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .controls {
+                gap: 0.3rem;
+            }
+
+            .control-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+
+            .slide-title {
+                font-size: 2rem;
+            }
+
+            .slide-description {
+                font-size: 1rem;
+            }
+        }
+
+        /* Efeitos especiais */
+        .slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, 
+                rgba(255, 0, 150, 0.1) 0%, 
+                rgba(0, 255, 255, 0.1) 50%, 
+                rgba(255, 0, 150, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            pointer-events: none;
+        }
+
+        .slide.active::before {
+            opacity: 1;
+        }
+
+        /* Partículas flutuantes */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: float 8s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container" id="sliderContainer">
+        <div class="slider-wrapper" id="sliderWrapper">
+            <!-- Slides -->
+            <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2070');">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2 class="slide-title">Natureza Selvagem</h2>
+                        <p class="slide-description">Explore paisagens deslumbrantes e conecte-se com a natureza em sua forma mais pura. Uma experiência que transformará sua perspectiva.</p>
+                        <a href="#" class="slide-button">Descobrir Mais</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070');">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2 class="slide-title">Montanhas Majestosas</h2>
+                        <p class="slide-description">Alcance novos patamares e conquiste seus sonhos. Cada passo é uma vitória, cada vista uma recompensa.</p>
+                        <a href="#" class="slide-button">Aventurar-se</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=2070');">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2 class="slide-title">Reflexões Serenas</h2>
+                        <p class="slide-description">Encontre paz interior nas águas cristalinas. Um momento de contemplação que renova a alma.</p>
+                        <a href="#" class="slide-button">Relaxar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1426604966848-d7adac402bff?q=80&w=2070');">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2 class="slide-title">Floresta Encantada</h2>
+                        <p class="slide-description">Mergulhe na magia da floresta onde cada folha conta uma história e cada raio de sol é uma bênção.</p>
+                        <a href="#" class="slide-button">Explorar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070');">
+                <div class="slide-content">
+                    <div class="slide-text">
+                        <h2 class="slide-title">Horizonte Infinito</h2>
+                        <p class="slide-description">Onde o céu encontra a terra, nascem as possibilidades infinitas. Seu futuro aguarda além do horizonte.</p>
+                        <a href="#" class="slide-button">Começar Jornada</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles -->
+        <button class="nav-arrows prev-btn" onclick="changeSlide(-1)">‹</button>
+        <button class="nav-arrows next-btn" onclick="changeSlide(1)">›</button>
+
+        <div class="controls">
+            <button class="control-btn" onclick="toggleAutoplay()" id="playBtn">⏸️</button>
+            <button class="control-btn" onclick="resetSlider()">⏹️</button>
+            <button class="control-btn" onclick="toggleSpeed()">⚡</button>
+        </div>
+
+        <div class="indicators" id="indicators"></div>
+
+        <button class="fullscreen-toggle" onclick="toggleFullscreen()">⛶</button>
+
+        <div class="thumbnail-nav" id="thumbnailNav"></div>
+
+        <div class="autoplay-progress" id="autoplayProgress"></div>
+
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <script>
+        class AdvancedSlider {
+            constructor() {
+                this.currentSlide = 0;
+                this.slides = document.querySelectorAll('.slide');
+                this.totalSlides = this.slides.length;
+                this.isAutoplay = true;
+                this.autoplaySpeed = 4000;
+                this.isFullscreen = false;
+                this.touchStartX = 0;
+                this.touchEndX = 0;
+                
+                this.init();
+            }
+
+            init() {
+                this.createIndicators();
+                this.createThumbnails();
+                this.createParticles();
+                this.setupEventListeners();
+                this.startAutoplay();
+                this.updateSlides();
+            }
+
+            createIndicators() {
+                const indicatorContainer = document.getElementById('indicators');
+                indicatorContainer.innerHTML = '';
+                
+                for (let i = 0; i < this.totalSlides; i++) {
+                    const indicator = document.createElement('div');
+                    indicator.className = `indicator ${i === 0 ? 'active' : ''}`;
+                    indicator.onclick = () => this.goToSlide(i);
+                    indicatorContainer.appendChild(indicator);
+                }
+            }
+
+            createThumbnails() {
+                const thumbnailContainer = document.getElementById('thumbnailNav');
+                thumbnailContainer.innerHTML = '';
+                
+                this.slides.forEach((slide, index) => {
+                    const thumbnail = document.createElement('div');
+                    thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+                    thumbnail.style.backgroundImage = slide.style.backgroundImage;
+                    thumbnail.onclick = () => this.goToSlide(index);
+                    thumbnailContainer.appendChild(thumbnail);
+                });
+            }
+
+            createParticles() {
+                const particleContainer = document.getElementById('particles');
+                
+                for (let i = 0; i < 20; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 8 + 's';
+                    particle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+                    particleContainer.appendChild(particle);
+                }
+            }
+
+            setupEventListeners() {
+                // Touch events
+                const slider = document.getElementById('sliderWrapper');
+                slider.addEventListener('touchstart', (e) => {
+                    this.touchStartX = e.changedTouches[0].screenX;
+                });
+
+                slider.addEventListener('touchend', (e) => {
+                    this.touchEndX = e.changedTouches[0].screenX;
+                    this.handleSwipe();
+                });
+
+                // Keyboard events
+                document.addEventListener('keydown', (e) => {
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                            this.changeSlide(-1);
+                            break;
+                        case 'ArrowRight':
+                            this.changeSlide(1);
+                            break;
+                        case ' ':
+                            e.preventDefault();
+                            this.toggleAutoplay();
+                            break;
+                        case 'f':
+                        case 'F':
+                            this.toggleFullscreen();
+                            break;
+                    }
+                });
+
+                // Mouse wheel
+                slider.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                    if (e.deltaY > 0) {
+                        this.changeSlide(1);
+                    } else {
+                        this.changeSlide(-1);
+                    }
+                });
+            }
+
+            handleSwipe() {
+                const swipeThreshold = 50;
+                const diff = this.touchStartX - this.touchEndX;
+                
+                if (Math.abs(diff) > swipeThreshold) {
+                    if (diff > 0) {
+                        this.changeSlide(1);
+                    } else {
+                        this.changeSlide(-1);
+                    }
+                }
+            }
+
+            changeSlide(direction) {
+                this.currentSlide += direction;
+                
+                if (this.currentSlide >= this.totalSlides) {
+                    this.currentSlide = 0;
+                } else if (this.currentSlide < 0) {
+                    this.currentSlide = this.totalSlides - 1;
+                }
+                
+                this.updateSlides();
+                this.restartAutoplay();
+            }
+
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateSlides();
+                this.restartAutoplay();
+            }
+
+            updateSlides() {
+                this.slides.forEach((slide, index) => {
+                    slide.classList.remove('active', 'prev', 'next');
+                    
+                    if (index === this.currentSlide) {
+                        slide.classList.add('active');
+                    } else if (index === this.currentSlide - 1 || (this.currentSlide === 0 && index === this.totalSlides - 1)) {
+                        slide.classList.add('prev');
+                    } else if (index === this.currentSlide + 1 || (this.currentSlide === this.totalSlides - 1 && index === 0)) {
+                        slide.classList.add('next');
+                    }
+                });
+
+                this.updateIndicators();
+                this.updateThumbnails();
+            }
+
+            updateIndicators() {
+                const indicators = document.querySelectorAll('.indicator');
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+
+            updateThumbnails() {
+                const thumbnails = document.querySelectorAll('.thumbnail');
+                thumbnails.forEach((thumbnail, index) => {
+                    thumbnail.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+
+            toggleAutoplay() {
+                this.isAutoplay = !this.isAutoplay;
+                const playBtn = document.getElementById('playBtn');
+                playBtn.textContent = this.isAutoplay ? '⏸️' : '▶️';
+                
+                if (this.isAutoplay) {
+                    this.startAutoplay();
+                } else {
+                    this.stopAutoplay();
+                }
+            }
+
+            startAutoplay() {
+                if (!this.isAutoplay) return;
+                
+                this.stopAutoplay();
+                this.autoplayInterval = setInterval(() => {
+                    this.changeSlide(1);
+                }, this.autoplaySpeed);
+                
+                this.startProgressBar();
+            }
+
+            stopAutoplay() {
+                if (this.autoplayInterval) {
+                    clearInterval(this.autoplayInterval);
+                }
+                if (this.progressInterval) {
+                    clearInterval(this.progressInterval);
+                }
+            }
+
+            restartAutoplay() {
+                if (this.isAutoplay) {
+                    this.startAutoplay();
+                }
+            }
+
+            startProgressBar() {
+                const progressBar = document.getElementById('autoplayProgress');
+                let width = 0;
+                const increment = 100 / (this.autoplaySpeed / 100);
+                
+                this.progressInterval = setInterval(() => {
+                    width += increment;
+                    progressBar.style.width = width + '%';
+                    
+                    if (width >= 100) {
+                        width = 0;
+                    }
+                }, 100);
+            }
+
+            toggleSpeed() {
+                const speeds = [2000, 4000, 6000];
+                const currentIndex = speeds.indexOf(this.autoplaySpeed);
+                this.autoplaySpeed = speeds[(currentIndex + 1) % speeds.length];
+                
+                if (this.isAutoplay) {
+                    this.startAutoplay();
+                }
+            }
+
+            resetSlider() {
+                this.currentSlide = 0;
+                this.updateSlides();
+                this.restartAutoplay();
+            }
+
+            toggleFullscreen() {
+                const container = document.getElementById('sliderContainer');
+                
+                if (!this.isFullscreen) {
+                    if (container.requestFullscreen) {
+                        container.requestFullscreen();
+                    } else if (container.webkitRequestFullscreen) {
+                        container.webkitRequestFullscreen();
+                    } else if (container.msRequestFullscreen) {
+                        container.msRequestFullscreen();
+                    }
+                    container.classList.add('fullscreen');
+                } else {
+                    if (document.exitFullscreen) {
+                        document.exitFullscreen();
+                    } else if (document.webkitExitFullscreen) {
+                        document.webkitExitFullscreen();
+                    } else if (document.msExitFullscreen) {
+                        document.msExitFullscreen();
+                    }
+                    container.classList.remove('fullscreen');
+                }
+                
+                this.isFullscreen = !this.isFullscreen;
+            }
+        }
+
+        // Funções globais para os botões
+        let slider;
+
+        function changeSlide(direction) {
+            slider.changeSlide(direction);
+        }
+
+        function toggleAutoplay() {
+            slider.toggleAutoplay();
+        }
+
+        function resetSlider() {
+            slider.resetSlider();
+        }
+
+        function toggleSpeed() {
+            slider.toggleSpeed();
+        }
+
+        function toggleFullscreen() {
+            slider.toggleFullscreen();
+        }
+
+        // Inicializar o slider
+        document.addEventListener('DOMContentLoaded', () => {
+            slider = new AdvancedSlider();
+        });
+
+        // Detectar saída do fullscreen
+        document.addEventListener('fullscreenchange', () => {
+            const container = document.getElementById('sliderContainer');
+            if (!document.fullscreenElement) {
+                container.classList.remove('fullscreen');
+                slider.isFullscreen = false;
+            }
+        });
+    </script>
+</body>
+</html>

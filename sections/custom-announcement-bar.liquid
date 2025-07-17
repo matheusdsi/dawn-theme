@@ -1,0 +1,203 @@
+{%- comment -%}
+  ANNOUNCEMENT BAR - SCROLL CONTÍNUO E IMEDIATO
+  Frases sempre visíveis rolando uma atrás da outra
+{%- endcomment -%}
+
+{%- if section.settings.enable_announcement -%}
+  <style>
+    #announcement-bar-{{ section.id }} {
+      background-color: {{ section.settings.background_color }};
+      color: {{ section.settings.text_color }};
+      text-align: {{ section.settings.text_alignment }};
+      padding: {{ section.settings.padding_top }}px {{ section.settings.padding_horizontal }}px {{ section.settings.padding_bottom }}px;
+      {%- if section.settings.enable_border -%}
+        border-bottom: {{ section.settings.border_width }}px solid {{ section.settings.border_color }};
+      {%- endif -%}
+      {%- if section.settings.enable_shadow -%}
+        box-shadow: 0 {{ section.settings.shadow_offset }}px {{ section.settings.shadow_blur }}px rgba(0,0,0,{{ section.settings.shadow_opacity | divided_by: 100.0 }});
+      {%- endif -%}
+      position: relative;
+      overflow: hidden;
+      z-index: 999;
+      height: auto;
+      min-height: {{ section.settings.min_height }}px;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    #announcement-bar-{{ section.id }} .announcement-container {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #announcement-bar-{{ section.id }} .announcement-track {
+      display: flex;
+      animation: scroll-continuous {{ section.settings.scroll_speed }}s linear infinite;
+      will-change: transform;
+    }
+
+    #announcement-bar-{{ section.id }} .announcement-item {
+      flex: 0 0 auto;
+      padding-right: {{ section.settings.item_spacing }}px;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+    }
+
+    #announcement-bar-{{ section.id }} .announcement-separator {
+      color: {{ section.settings.separator_color }};
+      font-weight: {{ section.settings.separator_weight }};
+      margin: 0 {{ section.settings.separator_spacing }}px;
+    }
+
+    #announcement-bar-{{ section.id }} .announcement-text {
+      font-size: {{ section.settings.font_size_multiplier }}em;
+      font-weight: {{ section.settings.font_weight }};
+      letter-spacing: {{ section.settings.letter_spacing }}px;
+      line-height: {{ section.settings.line_height }};
+      text-transform: {{ section.settings.text_transform }};
+      {%- if section.settings.enable_text_decoration -%}
+        text-decoration: {{ section.settings.text_decoration }};
+      {%- endif -%}
+    }
+
+    #announcement-bar-{{ section.id }} .announcement-link {
+      color: {{ section.settings.link_color }};
+      text-decoration: {{ section.settings.link_decoration }};
+      font-weight: {{ section.settings.link_font_weight }};
+      transition: color 0.3s ease;
+    }
+
+    #announcement-bar-{{ section.id }} .announcement-link:hover {
+      color: {{ section.settings.link_hover_color }};
+    }
+
+    {%- if section.settings.enable_gradient -%}
+      #announcement-bar-{{ section.id }}::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          {{ section.settings.gradient_direction }}deg,
+          {{ section.settings.gradient_color_1 }} 0%,
+          {{ section.settings.gradient_color_2 }} 100%
+        );
+        z-index: -1;
+      }
+    {%- endif -%}
+
+    /* Animação de scroll contínuo */
+    @keyframes scroll-continuous {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Pausa ao passar mouse */
+    {%- if section.settings.pause_on_hover -%}
+      #announcement-bar-{{ section.id }}:hover .announcement-track {
+        animation-play-state: paused;
+      }
+    {%- endif -%}
+
+    /* Fade nas bordas para suavizar */
+    {%- if section.settings.enable_fade_edges -%}
+      #announcement-bar-{{ section.id }} .announcement-container::before,
+      #announcement-bar-{{ section.id }} .announcement-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: {{ section.settings.fade_width }}px;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      #announcement-bar-{{ section.id }} .announcement-container::before {
+        left: 0;
+        background: linear-gradient(to right, {{ section.settings.background_color }}, transparent);
+      }
+
+      #announcement-bar-{{ section.id }} .announcement-container::after {
+        right: 0;
+        background: linear-gradient(to left, {{ section.settings.background_color }}, transparent);
+      }
+    {%- endif -%}
+
+    @media screen and (max-width: 768px) {
+      #announcement-bar-{{ section.id }} {
+        padding: {{ section.settings.mobile_padding_top }}px {{ section.settings.mobile_padding_horizontal }}px {{ section.settings.mobile_padding_bottom }}px;
+        min-height: {{ section.settings.mobile_min_height }}px;
+      }
+      
+      #announcement-bar-{{ section.id }} .announcement-text {
+        font-size: {{ section.settings.mobile_font_size_multiplier }}em;
+      }
+
+      #announcement-bar-{{ section.id }} .announcement-track {
+        animation-duration: {{ section.settings.mobile_scroll_speed }}s;
+      }
+
+      #announcement-bar-{{ section.id }} .announcement-item {
+        padding-right: {{ section.settings.mobile_item_spacing }}px;
+      }
+    }
+  </style>
+
+  <div id="announcement-bar-{{ section.id }}" class="announcement-bar-custom">
+    <div class="announcement-container">
+      <div class="announcement-track">
+        {%- comment -%} Primeira sequência de frases {%- endcomment -%}
+        {%- for block in section.blocks -%}
+          <div class="announcement-item" {{ block.shopify_attributes }}>
+            <div class="announcement-text">
+              {%- if block.settings.text != blank -%}
+                {%- if block.settings.link != blank -%}
+                  <a href="{{ block.settings.link }}" class="announcement-link">
+                    {{ block.settings.text }}
+                  </a>
+                {%- else -%}
+                  {{ block.settings.text }}
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+            {%- unless forloop.last -%}
+              <span class="announcement-separator">{{ section.settings.separator_symbol }}</span>
+            {%- endunless -%}
+          </div>
+        {%- endfor -%}
+        
+        {%- comment -%} Separador entre sequências {%- endcomment -%}
+        <span class="announcement-separator">{{ section.settings.separator_symbol }}</span>
+        
+        {%- comment -%} Segunda sequência para loop contínuo {%- endcomment -%}
+        {%- for block in section.blocks -%}
+          <div class="announcement-item">
+            <div class="announcement-text">
+              {%- if block.settings.text != blank -%}
+                {%- if block.settings.link != blank -%}
+                  <a href="{{ block.settings.link }}" class="announcement-link">
+                    {{ block.settings.text }}
+                  </a>
+                {%- else -%}
+                  {{ block.settings.text }}
+                {%- endif -%}
+              {%- endif -%}
+            </div>
+            {%- unless forloop.last -%}
+              <span class="announcement-separator">{{ section.settings.separator_symbol }}</span>
+            {%- endunless -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}

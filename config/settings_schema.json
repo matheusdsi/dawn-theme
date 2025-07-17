@@ -8,111 +8,110 @@
     "theme_support_url": "https://support.shopify.com/"
   },
   {
-  "name": "WhatsApp Icon",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Exibição"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_whatsapp_icon",
-      "label": "Exibir botão do WhatsApp flutuante",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "whatsapp_number",
-      "label": "Número do WhatsApp",
-      "default": "(00) 91234-5678",
-    },
-    {
-      "type": "header",
-      "content": "Estilo do Ícone"
-    },
-    {
-      "type": "select",
-      "id": "whatsapp_icon_style",
-      "label": "Cor do ícone",
-      "options": [
-        {
-          "value": "blend",
-          "label": "Monocromático"
-        },
-        {
-          "value": "color",
-          "label": "Colorido"
-        }
-      ],
-      "default": "blend"
-    },
-    {
-      "type": "header",
-      "content": "Posicionamento"
-    },
-    {
-      "type": "select",
-      "id": "vertical_alignment",
-      "label": "Alinhamento horizontal",
-      "options": [
-        {
-          "value": "left",
-          "label": "Esquerda"
-        },
-        {
-          "value": "right",
-          "label": "Direita"
-        }
-      ],
-      "default": "right"
-    },
-    {
-      "type": "range",
-      "id": "right_range",
-      "min": 0,
-      "max": 56,
-      "step": 2,
-      "default": 16,
-      "unit": "px",
-      "label": "Distância lateral"
-    },
-    {
-      "type": "range",
-      "id": "bottom_range",
-      "min": 0,
-      "max": 56,
-      "step": 2,
-      "default": 24,
-      "unit": "px",
-      "label": "Distância inferior"
-    },
-
-    {
-      "type": "header",
-      "content": "Tamanho do Ícone"
-    },
-    {
-      "type": "range",
-      "id": "icon_width",
-      "min": 24,
-      "max": 56,
-      "step": 2,
-      "default": 44,
-      "unit": "px",
-      "label": "Tamanho no desktop"
-    },
-    {
-      "type": "range",
-      "id": "mobile_icon_width",
-      "min": 24,
-      "max": 56,
-      "step": 2,
-      "default": 32,
-      "unit": "px",
-      "label": "Tamanho no mobile"
-    }
-  ]
-},
+    "name": "WhatsApp Icon",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Exibição"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_whatsapp_icon",
+        "label": "Exibir botão do WhatsApp flutuante",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "Número do WhatsApp",
+        "default": "(00) 91234-5678"
+      },
+      {
+        "type": "header",
+        "content": "Estilo do Ícone"
+      },
+      {
+        "type": "select",
+        "id": "whatsapp_icon_style",
+        "label": "Cor do ícone",
+        "options": [
+          {
+            "value": "blend",
+            "label": "Monocromático"
+          },
+          {
+            "value": "color",
+            "label": "Colorido"
+          }
+        ],
+        "default": "blend"
+      },
+      {
+        "type": "header",
+        "content": "Posicionamento"
+      },
+      {
+        "type": "select",
+        "id": "vertical_alignment",
+        "label": "Alinhamento horizontal",
+        "options": [
+          {
+            "value": "left",
+            "label": "Esquerda"
+          },
+          {
+            "value": "right",
+            "label": "Direita"
+          }
+        ],
+        "default": "right"
+      },
+      {
+        "type": "range",
+        "id": "right_range",
+        "min": 0,
+        "max": 56,
+        "step": 2,
+        "default": 16,
+        "unit": "px",
+        "label": "Distância lateral"
+      },
+      {
+        "type": "range",
+        "id": "bottom_range",
+        "min": 0,
+        "max": 56,
+        "step": 2,
+        "default": 24,
+        "unit": "px",
+        "label": "Distância inferior"
+      },
+      {
+        "type": "header",
+        "content": "Tamanho do Ícone"
+      },
+      {
+        "type": "range",
+        "id": "icon_width",
+        "min": 24,
+        "max": 56,
+        "step": 2,
+        "default": 44,
+        "unit": "px",
+        "label": "Tamanho no desktop"
+      },
+      {
+        "type": "range",
+        "id": "mobile_icon_width",
+        "min": 24,
+        "max": 56,
+        "step": 2,
+        "default": 32,
+        "unit": "px",
+        "label": "Tamanho no mobile"
+      }
+    ]
+  },
   {
     "name": "t:settings_schema.logo.name",
     "settings": [
@@ -204,6 +203,197 @@
           "on_secondary_button": "secondary_button_label",
           "secondary_button_border": "secondary_button_label"
         }
+      }
+    ]
+  },
+  {
+    "name": "🎨 Cores Personalizadas Extras",
+    "settings": [
+      {
+        "type": "header",
+        "content": "📰 Header e Navegação"
+      },
+      {
+        "type": "color",
+        "id": "custom_header_bg",
+        "label": "Fundo do header",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "custom_header_text",
+        "label": "Texto do header",
+        "default": "#121212"
+      },
+      {
+        "type": "color",
+        "id": "custom_nav_links",
+        "label": "Links de navegação",
+        "default": "#121212"
+      },
+      {
+        "type": "color",
+        "id": "custom_nav_links_hover",
+        "label": "Links de navegação (hover)",
+        "default": "#666666"
+      },
+      {
+        "type": "header",
+        "content": "📢 Barra de Anúncios"
+      },
+      {
+        "type": "color",
+        "id": "custom_announcement_bg",
+        "label": "Fundo da barra de anúncios",
+        "default": "#121212"
+      },
+      {
+        "type": "color",
+        "id": "custom_announcement_text",
+        "label": "Texto da barra de anúncios",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "header",
+        "content": "🦶 Footer"
+      },
+      {
+        "type": "color",
+        "id": "custom_footer_bg",
+        "label": "Fundo do footer",
+        "default": "#121212"
+      },
+      {
+        "type": "color",
+        "id": "custom_footer_text",
+        "label": "Texto do footer",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "custom_footer_links",
+        "label": "Links do footer",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "custom_footer_headings",
+        "label": "Títulos do footer",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "custom_footer_links_hover",
+        "label": "Links do footer (hover)",
+        "default": "#CCCCCC"
+      },
+      {
+        "type": "header",
+        "content": "🛒 Elementos de Compra"
+      },
+      {
+        "type": "color",
+        "id": "custom_price_regular",
+        "label": "Preço regular",
+        "default": "#121212"
+      },
+      {
+        "type": "color",
+        "id": "custom_price_sale",
+        "label": "Preço promocional",
+        "default": "#D72C0D"
+      },
+      {
+        "type": "color",
+        "id": "custom_price_compare",
+        "label": "Preço comparativo (riscado)",
+        "default": "#8B8680"
+      },
+      {
+        "type": "color",
+        "id": "custom_add_to_cart_bg",
+        "label": "Fundo botão adicionar ao carrinho",
+        "default": "#121212"
+      },
+      {
+        "type": "color",
+        "id": "custom_add_to_cart_text",
+        "label": "Texto botão adicionar ao carrinho",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "custom_add_to_cart_hover",
+        "label": "Botão adicionar ao carrinho (hover)",
+        "default": "#000000"
+      },
+      {
+        "type": "header",
+        "content": "🔍 Busca"
+      },
+      {
+        "type": "color",
+        "id": "custom_search_bg",
+        "label": "Fundo da busca",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "custom_search_text",
+        "label": "Texto da busca",
+        "default": "#121212"
+      },
+      {
+        "type": "color",
+        "id": "custom_search_border",
+        "label": "Borda da busca",
+        "default": "#121212"
+      },
+      {
+        "type": "color",
+        "id": "custom_search_placeholder",
+        "label": "Placeholder da busca",
+        "default": "#8B8680"
+      },
+      {
+        "type": "header",
+        "content": "🏷️ Badges e Etiquetas"
+      },
+      {
+        "type": "color",
+        "id": "custom_sale_badge_bg",
+        "label": "Fundo badge de promoção",
+        "default": "#D72C0D"
+      },
+      {
+        "type": "color",
+        "id": "custom_sale_badge_text",
+        "label": "Texto badge de promoção",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "custom_sold_out_badge_bg",
+        "label": "Fundo badge esgotado",
+        "default": "#8B8680"
+      },
+      {
+        "type": "color",
+        "id": "custom_sold_out_badge_text",
+        "label": "Texto badge esgotado",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "custom_new_badge_bg",
+        "label": "Fundo badge novo",
+        "default": "#2E7D32"
+      },
+      {
+        "type": "color",
+        "id": "custom_new_badge_text",
+        "label": "Texto badge novo",
+        "default": "#FFFFFF"
       }
     ]
   },
@@ -1615,7 +1805,7 @@
       }
     ]
   },
-  {
+    {
     "name": "t:settings_schema.currency_format.name",
     "settings": [
       {
@@ -1653,6 +1843,12 @@
         "default": "notification",
         "label": "t:settings_schema.cart.settings.cart_type.label"
       },
+      {       
+        "type": "checkbox",      
+        "id": "show_continue_shopping_button",       
+        "label": "Exibir botão 'Continuar comprando'",       
+        "default": true     
+      },
       {
         "type": "checkbox",
         "id": "show_vendor",
@@ -1684,3 +1880,4 @@
     ]
   }
 ]
+

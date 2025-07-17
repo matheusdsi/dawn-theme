@@ -1,0 +1,151 @@
+/* =============================================================================
+   CORES PERSONALIZADAS - TEMA TRADE
+   ============================================================================= */
+
+:root {
+  /* Header e Navegação */
+  --custom-header-bg: {{ settings.custom_header_bg | default: '#FFFFFF' }};
+  --custom-header-text: {{ settings.custom_header_text | default: '#121212' }};
+  --custom-nav-links: {{ settings.custom_nav_links | default: '#121212' }};
+  --custom-nav-links-hover: {{ settings.custom_nav_links_hover | default: '#666666' }};
+  
+  /* Barra de Anúncios */
+  --custom-announcement-bg: {{ settings.custom_announcement_bg | default: '#121212' }};
+  --custom-announcement-text: {{ settings.custom_announcement_text | default: '#FFFFFF' }};
+  
+  /* Footer */
+  --custom-footer-bg: {{ settings.custom_footer_bg | default: '#121212' }};
+  --custom-footer-text: {{ settings.custom_footer_text | default: '#FFFFFF' }};
+  --custom-footer-links: {{ settings.custom_footer_links | default: '#FFFFFF' }};
+  --custom-footer-headings: {{ settings.custom_footer_headings | default: '#FFFFFF' }};
+  --custom-footer-links-hover: {{ settings.custom_footer_links_hover | default: '#CCCCCC' }};
+  
+  /* Elementos de Compra */
+  --custom-price-regular: {{ settings.custom_price_regular | default: '#121212' }};
+  --custom-price-sale: {{ settings.custom_price_sale | default: '#D72C0D' }};
+  --custom-price-compare: {{ settings.custom_price_compare | default: '#8B8680' }};
+  --custom-add-to-cart-bg: {{ settings.custom_add_to_cart_bg | default: '#121212' }};
+  --custom-add-to-cart-text: {{ settings.custom_add_to_cart_text | default: '#FFFFFF' }};
+  --custom-add-to-cart-hover: {{ settings.custom_add_to_cart_hover | default: '#000000' }};
+  
+  /* Busca */
+  --custom-search-bg: {{ settings.custom_search_bg | default: '#FFFFFF' }};
+  --custom-search-text: {{ settings.custom_search_text | default: '#121212' }};
+  --custom-search-border: {{ settings.custom_search_border | default: '#121212' }};
+  --custom-search-placeholder: {{ settings.custom_search_placeholder | default: '#8B8680' }};
+  
+  /* Badges */
+  --custom-sale-badge-bg: {{ settings.custom_sale_badge_bg | default: '#D72C0D' }};
+  --custom-sale-badge-text: {{ settings.custom_sale_badge_text | default: '#FFFFFF' }};
+  --custom-sold-out-badge-bg: {{ settings.custom_sold_out_badge_bg | default: '#8B8680' }};
+  --custom-sold-out-badge-text: {{ settings.custom_sold_out_badge_text | default: '#FFFFFF' }};
+  --custom-new-badge-bg: {{ settings.custom_new_badge_bg | default: '#2E7D32' }};
+  --custom-new-badge-text: {{ settings.custom_new_badge_text | default: '#FFFFFF' }};
+}
+
+/* =============================================================================
+   APLICAÇÃO DAS CORES PERSONALIZADAS
+   ============================================================================= */
+
+/* HEADER */
+.header {
+  background-color: var(--custom-header-bg) !important;
+  color: var(--custom-header-text) !important;
+}
+
+.header__heading,
+.header__heading a {
+  color: var(--custom-header-text) !important;
+}
+
+/* NAVEGAÇÃO */
+.header__menu a,
+.header__menu-item a {
+  color: var(--custom-nav-links) !important;
+}
+
+.header__menu a:hover,
+.header__menu-item a:hover {
+  color: var(--custom-nav-links-hover) !important;
+}
+
+/* BARRA DE ANÚNCIOS */
+.announcement-bar {
+  background-color: var(--custom-announcement-bg) !important;
+  color: var(--custom-announcement-text) !important;
+}
+
+.announcement-bar__message,
+.announcement-bar__message a {
+  color: var(--custom-announcement-text) !important;
+}
+
+/* FOOTER */
+.footer {
+  background-color: var(--custom-footer-bg) !important;
+  color: var(--custom-footer-text) !important;
+}
+
+.footer__heading {
+  color: var(--custom-footer-headings) !important;
+}
+
+.footer a {
+  color: var(--custom-footer-links) !important;
+}
+
+.footer a:hover {
+  color: var(--custom-footer-links-hover) !important;
+}
+
+/* PREÇOS */
+.price {
+  color: var(--custom-price-regular) !important;
+}
+
+.price--on-sale {
+  color: var(--custom-price-sale) !important;
+}
+
+.price--compare {
+  color: var(--custom-price-compare) !important;
+}
+
+/* BOTÕES ADICIONAR AO CARRINHO */
+.product-form__cart-submit,
+.btn--primary {
+  background-color: var(--custom-add-to-cart-bg) !important;
+  color: var(--custom-add-to-cart-text) !important;
+}
+
+.product-form__cart-submit:hover,
+.btn--primary:hover {
+  background-color: var(--custom-add-to-cart-hover) !important;
+}
+
+/* BUSCA */
+.search__input {
+  background-color: var(--custom-search-bg) !important;
+  color: var(--custom-search-text) !important;
+  border-color: var(--custom-search-border) !important;
+}
+
+.search__input::placeholder {
+  color: var(--custom-search-placeholder) !important;
+}
+
+/* BADGES */
+.badge--sale {
+  background-color: var(--custom-sale-badge-bg) !important;
+  color: var(--custom-sale-badge-text) !important;
+}
+
+.badge--sold-out {
+  background-color: var(--custom-sold-out-badge-bg) !important;
+  color: var(--custom-sold-out-badge-text) !important;
+}
+
+.badge--new {
+  background-color: var(--custom-new-badge-bg) !important;
+  color: var(--custom-new-badge-text) !important;
+}

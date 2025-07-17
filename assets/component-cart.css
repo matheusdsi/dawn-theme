@@ -225,3 +225,23 @@ cart-items {
     flex-direction: column;
   }
 }
+
+/* Botão secundário carrinho */
+
+.secondary_cart_button {
+  margin-top: 12px;  
+  margin-bottom: 20px;  
+  display: inline-flex; 
+  font-size: 1.4rem; 
+  padding: 1.2rem 2.4rem; 
+  font-weight: 600;  
+  line-height: 1.4;
+  background: #fff;
+  color: #000;
+  border: 2px solid #000;
+}
+
+.cart-font {
+  font-size: 18px !important;
+  width: 100px;
+}

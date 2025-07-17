@@ -1,12 +1,3 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "main": {
@@ -63,7 +54,7 @@
             "bg_color": "#f7f7f7",
             "text_color": "#000000",
             "open_by_default": false,
-            "texto_pagamento": "<p><strong>Pague com segurança</strong> usando <span style=\"text-decoration:underline\">estas opções de pagamento.</span></p>",
+            "texto_pagamento": "<p><strong>Pague com segurança<\/strong> usando <span style=\"text-decoration:underline\">estas opções de pagamento.<\/span><\/p>",
             "mostrar_mercado_pago": true,
             "mostrar_pix": true,
             "mostrar_boleto": true,
@@ -149,7 +140,7 @@
           "settings": {
             "caption": "Legenda",
             "heading": "Linha",
-            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.</p>",
+            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.<\/p>",
             "button_label": "Etiqueta de botão",
             "button_link": ""
           }
@@ -159,7 +150,7 @@
           "settings": {
             "caption": "Legenda",
             "heading": "Linha",
-            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.</p>",
+            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.<\/p>",
             "button_label": "Etiqueta de botão",
             "button_link": ""
           }
@@ -169,7 +160,7 @@
           "settings": {
             "caption": "Legenda",
             "heading": "Linha",
-            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.</p>",
+            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.<\/p>",
             "button_label": "Etiqueta de botão",
             "button_link": ""
           }

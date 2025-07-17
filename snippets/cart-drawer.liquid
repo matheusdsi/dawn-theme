@@ -230,18 +230,24 @@
                                 <span class="visually-hidden">
                                   {{ 'products.product.price.regular_price' | t }}
                                 </span>
-                                <s class="cart-item__old-price price price--end">
+                                <s class="cart-font cart-item__old-price price price--end">
                                   {{ item.original_line_price | money }}
                                 </s>
+
+                              <style>
+                              .cart-font {
+                              font-size: 18px !important;
+                              }
+                              </style>
                                 <span class="visually-hidden">
                                   {{ 'products.product.price.sale_price' | t }}
                                 </span>
-                                <span class="price price--end">
+                                <span class="cart-font price price--end">
                                   {{ item.final_line_price | money }}
                                 </span>
                               </div>
                             {%- else -%}
-                              <span class="price price--end">
+                              <span class="cart-font price price--end">
                                 {{ item.original_line_price | money }}
                               </span>
                             {%- endif -%}
@@ -493,50 +499,10 @@
             {%- endif -%}
           </div>
 
-          <div class="totals" role="status">
+          <div class="totals cart-drawer tax-note" role="status">
             <h2 class="totals__total">{{ 'sections.cart.estimated_total' | t }}</h2>
             <p class="totals__total-value">{{ cart.total_price | money_with_currency }}</p>
           </div>
-
-          <small class="tax-note caption-large rte">
-            {%- if cart.duties_included and cart.taxes_included -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.duties_and_taxes_included_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.duties_and_taxes_included_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
-              {%- endif -%}
-            {%- elsif cart.duties_included == false and cart.taxes_included -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.taxes_included_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.taxes_included_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
-              {%- endif -%}
-            {%- elsif cart.duties_included and cart.taxes_included == false -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
-              {%- endif -%}
-            {%- elsif cart.duties_included == false and cart.taxes_included == false -%}
-              {%- if shop.shipping_policy.body == blank -%}
-                {{ 'sections.cart.taxes_at_checkout_shipping_at_checkout_without_policy' | t }}
-              {%- else -%}
-                {{
-                  'sections.cart.taxes_at_checkout_shipping_at_checkout_with_policy_html'
-                  | t: link: shop.shipping_policy.url
-                }}
-              {%- endif -%}
-            {%- endif -%}
-          </small>
         </div>
 
         <!-- CTAs -->
@@ -554,6 +520,12 @@
           >
             {{ 'sections.cart.checkout' | t }}
           </button>
+
+          {%- if settings.show_continue_shopping_button -%}   
+            <a href="/" class="secondary_cart_button cart__checkout-button button">
+            Continuar comprando
+            </a>
+          {%- endif -%}
         </div>
       </div>
     </div>
