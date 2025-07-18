@@ -130,9 +130,8 @@
             <img src="{{ variant_image | img_url: width: block.settings.variant_image_size, height: block.settings.variant_image_size, crop: 'center' }}" width="{{ block.settings.variant_image_size | default: 80 }}" height="{{ block.settings.variant_image_size | default: 80 }}" alt="{{ value | escape }}" title="{{ value | escape }}">
           </div>
         {% else %}
-          <div class="variant-color-swatch" style="background-color: {{ value | replace: ' ', '' | downcase }}; width: 50px; height: 50px;" title="{{ value | escape }}"></div>
+          <div class="variant-color-swatch" style="background-color: {{ value | replace: ' ', '' | downcase }}; width: {{ block.settings.variant_image_size | default: 80 }}px; height: {{ block.settings.variant_image_size | default: 80 }}px;" title="{{ value | escape }}"></div>
         {% endif %}
-        <small class="variant-name-image">{{ value | escape }}</small>
       {% else %}
         {{ value -}}
       {% endif %}
