@@ -19,6 +19,10 @@
     display: inline;
   }
 
+  .collection-list-title {
+    color: {{ section.settings.title_color }};
+  }
+
   {% if section.settings.card_round_enable %}
     .section-{{ section.id }}-padding .collection-list__item .card__media img {
       border-radius: {{ section.settings.card_border_radius }}%;
@@ -58,7 +62,7 @@
   endif
 -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
+<div style="background-color: {{ section.settings.background_color }};">
   <div class="collection-list-wrapper page-width isolate{% if show_mobile_slider %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
     {%- unless section.settings.title == blank -%}
       <div class="title-wrapper-with-link{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
@@ -312,11 +316,16 @@
       "label": "t:sections.collection-list.settings.columns_desktop.label"
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "info": "t:sections.all.colors.has_cards_info",
-      "default": "scheme-1"
+      "type": "color",
+      "id": "background_color",
+      "label": "Cor de fundo da seção",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Cor do título da seção",
+      "default": "#121212"
     },
     {
       "type": "checkbox",

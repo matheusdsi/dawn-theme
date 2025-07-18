@@ -23,7 +23,7 @@
     font-family: var(--font-heading-family);
     font-style: var(--font-heading-style);
     font-weight: var(--font-heading-weight);
-    color: rgb(var(--color-foreground));
+    color: {{ section.settings.title_color }};
   }
 
   .size-chart__image {
@@ -43,7 +43,7 @@
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
+<div style="background-color: {{ section.settings.background_color }}; color: {{ section.settings.text_color }};">
   <div class="size-chart page-width section-{{ section.id }}-padding">
     {%- if section.settings.title != blank -%}
       <h2 class="size-chart__title {{ section.settings.heading_size }}">
@@ -139,10 +139,22 @@
       "default": true
     },
     {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "Esquema de cores",
-      "default": "scheme-1"
+      "type": "color",
+      "id": "background_color",
+      "label": "Cor de fundo",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Cor do texto",
+      "default": "#121212"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Cor do título",
+      "default": "#121212"
     },
     {
       "type": "header",
