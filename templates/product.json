@@ -27,7 +27,8 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "swatch_shape": "square"
+            "swatch_shape": "square",
+            "variant_image_size": 30
           }
         },
         "size_chart_UKYcyA": {
