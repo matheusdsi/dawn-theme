@@ -30,6 +30,15 @@
             "swatch_shape": "square"
           }
         },
+        "size_chart_UKYcyA": {
+          "type": "size_chart",
+          "settings": {
+            "heading": "Tabela de Medidas",
+            "size_chart_image": "shopify://shop_images/TESTEEEEE.jpg",
+            "description": "",
+            "icon": "ruler"
+          }
+        },
         "visualizacao_produto_6hrMj9": {
           "type": "visualizacao-produto",
           "settings": {
@@ -107,6 +116,7 @@
         "title",
         "price",
         "variant_picker_3PX6TQ",
+        "size_chart_UKYcyA",
         "visualizacao_produto_6hrMj9",
         "pix_P7cnxt",
         "buy_buttons_Ehga9d",
@@ -133,6 +143,7 @@
     },
     "size_chart_JXkPwC": {
       "type": "size-chart",
+      "disabled": true,
       "name": "Tabela de Medidas",
       "settings": {
         "title": "Tabela de Medidas",
