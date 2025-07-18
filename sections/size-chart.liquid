@@ -1,0 +1,178 @@
+{{ 'section-size-chart.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .size-chart {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .size-chart__title {
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading-family);
+    font-style: var(--font-heading-style);
+    font-weight: var(--font-heading-weight);
+    color: rgb(var(--color-foreground));
+  }
+
+  .size-chart__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: {{ section.settings.image_border_radius }}px;
+    box-shadow: {{ section.settings.image_shadow_enabled | default: false | json }} ? '0 4px 12px rgba(0,0,0,0.1)' : 'none';
+  }
+
+  .size-chart__description {
+    margin-top: 1rem;
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
+    color: rgba(var(--color-foreground), 0.75);
+    line-height: 1.6;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="size-chart page-width section-{{ section.id }}-padding">
+    {%- if section.settings.title != blank -%}
+      <h2 class="size-chart__title {{ section.settings.heading_size }}">
+        {{ section.settings.title }}
+      </h2>
+    {%- endif -%}
+
+    {%- if section.settings.size_chart_image != blank -%}
+      <div class="size-chart__image-wrapper">
+        <img
+          src="{{ section.settings.size_chart_image | image_url: width: 1200 }}"
+          alt="{{ section.settings.size_chart_image.alt | escape }}"
+          class="size-chart__image"
+          width="{{ section.settings.size_chart_image.width }}"
+          height="{{ section.settings.size_chart_image.height }}"
+          loading="lazy"
+        >
+      </div>
+    {%- endif -%}
+
+    {%- if section.settings.description != blank -%}
+      <div class="size-chart__description">
+        {{ section.settings.description }}
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Tabela de Medidas",
+  "tag": "section",
+  "class": "section section-size-chart",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título da seção",
+      "default": "Tabela de Medidas"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Pequeno"
+        },
+        {
+          "value": "h1",
+          "label": "Médio"
+        },
+        {
+          "value": "h0",
+          "label": "Grande"
+        }
+      ],
+      "default": "h1",
+      "label": "Tamanho do título"
+    },
+    {
+      "type": "image_picker",
+      "id": "size_chart_image",
+      "label": "Imagem da tabela de medidas"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descrição",
+      "info": "Texto adicional abaixo da imagem"
+    },
+    {
+      "type": "header",
+      "content": "Configurações de aparência"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Arredondamento da imagem",
+      "default": 8
+    },
+    {
+      "type": "checkbox",
+      "id": "image_shadow_enabled",
+      "label": "Ativar sombra na imagem",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Esquema de cores",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Espaçamento da seção"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaçamento superior",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Espaçamento inferior",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tabela de Medidas"
+    }
+  ]
+}
+{% endschema %}

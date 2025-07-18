@@ -26,16 +26,27 @@
   {% endif %}
 
   .card__text-below-image {
-    padding: 1rem 0.5rem 0;
     text-align: center;
   }
 
   .card__text-below-image-content {
     margin: 0;
-    font-size: 0.9rem;
-    color: rgba(var(--color-foreground), 0.75);
+    font-family: var(--font-body-family);
+    font-style: var(--font-body-style);
+    font-weight: var(--font-body-weight);
     line-height: 1.4;
   }
+
+  {%- for block in section.blocks -%}
+    .card__text-below-image--{{ block.id }} {
+      padding: {{ block.settings.text_spacing | default: 16 }}px 0.5rem 0;
+    }
+
+    .card__text-below-image-content--{{ block.id }} {
+      font-size: {{ block.settings.text_size | default: 14 }}px;
+      color: {{ block.settings.text_color | default: '#6b7280' }};
+    }
+  {%- endfor -%}
 {%- endstyle -%}
 
 {%- liquid
@@ -128,8 +139,8 @@
                card_border_radius:   section.settings.card_border_radius
             %}
             {%- if block.settings.text_below_image != blank -%}
-              <div class="card__text-below-image">
-                <p class="card__text-below-image-content">{{ block.settings.text_below_image }}</p>
+              <div class="card__text-below-image card__text-below-image--{{ block.id }}">
+                <p class="card__text-below-image-content card__text-below-image-content--{{ block.id }}">{{ block.settings.text_below_image }}</p>
               </div>
             {%- endif -%}
           </li>
@@ -372,6 +383,32 @@
           "id": "text_below_image",
           "label": "Texto abaixo da imagem",
           "info": "Texto que aparecerá abaixo da imagem desta coleção"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Cor do texto",
+          "default": "#6b7280"
+        },
+        {
+          "type": "range",
+          "id": "text_size",
+          "min": 10,
+          "max": 24,
+          "step": 1,
+          "unit": "px",
+          "label": "Tamanho da fonte",
+          "default": 14
+        },
+        {
+          "type": "range",
+          "id": "text_spacing",
+          "min": 0,
+          "max": 40,
+          "step": 2,
+          "unit": "px",
+          "label": "Espaçamento (padding)",
+          "default": 16
         }
       ]
     }
