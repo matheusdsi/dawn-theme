@@ -3878,3 +3878,7 @@ details-disclosure > details {
 .whatsapp-icon svg path {
   pointer-events: none;
 }
+
+.cor {
+  padding: 0!important;
+}
