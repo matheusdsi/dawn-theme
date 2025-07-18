@@ -1198,6 +1198,39 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'size_chart' -%}
+                <div class="product__accordion accordion quick-add-hidden" {{ block.shopify_attributes }}>
+                  <details id="Details-{{ block.id }}-{{ section.id }}">
+                    <summary>
+                      <div class="summary__title">
+                        {% render 'icon-accordion', icon: block.settings.icon %}
+                        <h2 class="h4 accordion__title inline-richtext">
+                          {{ block.settings.heading | default: 'Tabela de Medidas' | escape }}
+                        </h2>
+                      </div>
+                      {{- 'icon-caret.svg' | inline_asset_content -}}
+                    </summary>
+                    <div class="accordion__content rte" id="ProductAccordion-{{ block.id }}-{{ section.id }}">
+                      {%- if block.settings.size_chart_image != blank -%}
+                        <div class="size-chart__image-wrapper" style="text-align: center; margin-bottom: 1rem;">
+                          <img
+                            src="{{ block.settings.size_chart_image | image_url: width: 800 }}"
+                            alt="{{ block.settings.size_chart_image.alt | escape }}"
+                            style="max-width: 100%; height: auto; border-radius: 8px;"
+                            width="{{ block.settings.size_chart_image.width }}"
+                            height="{{ block.settings.size_chart_image.height }}"
+                            loading="lazy"
+                          >
+                        </div>
+                      {%- endif -%}
+                      {%- if block.settings.description != blank -%}
+                        <div class="size-chart__description">
+                          {{ block.settings.description }}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </details>
+                </div>
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -2901,6 +2934,58 @@
           "default": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.default",
           "label": "t:sections.main-product.blocks.icon_with_text.settings.heading_3.label",
           "info": "t:sections.main-product.blocks.icon_with_text.settings.heading.info"
+        }
+      ]
+    },
+    {
+      "type": "size_chart",
+      "name": "Tabela de Medidas",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Título",
+          "default": "Tabela de Medidas"
+        },
+        {
+          "type": "image_picker",
+          "id": "size_chart_image",
+          "label": "Imagem da tabela de medidas"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Descrição adicional",
+          "info": "Texto que aparecerá abaixo da imagem"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "options": [
+            {
+              "value": "none",
+              "label": "Nenhum"
+            },
+            {
+              "value": "ruler",
+              "label": "Régua"
+            },
+            {
+              "value": "shirt",
+              "label": "Camisa"
+            },
+            {
+              "value": "pants",
+              "label": "Calça"
+            },
+            {
+              "value": "shoe",
+              "label": "Sapato"
+            }
+          ],
+          "default": "ruler",
+          "label": "Ícone"
         }
       ]
     }

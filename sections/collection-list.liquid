@@ -39,12 +39,13 @@
 
   {%- for block in section.blocks -%}
     .card__text-below-image--{{ block.id }} {
-      padding: {{ block.settings.text_spacing | default: 16 }}px 0.5rem 0;
+      padding: {{ block.settings.text_spacing | default: 8 }}px 0.5rem 0;
     }
 
     .card__text-below-image-content--{{ block.id }} {
       font-size: {{ block.settings.text_size | default: 14 }}px;
       color: {{ block.settings.text_color | default: '#6b7280' }};
+      font-weight: {{ block.settings.text_bold | default: false | json }} ? 'bold' : 'normal';
     }
   {%- endfor -%}
 {%- endstyle -%}
@@ -138,9 +139,16 @@
                card_round_enable:    section.settings.card_round_enable,
                card_border_radius:   section.settings.card_border_radius
             %}
-            {%- if block.settings.text_below_image != blank -%}
+            {%- assign display_text = '' -%}
+            {%- if block.settings.use_collection_name and block.settings.collection.title != blank -%}
+              {%- assign display_text = block.settings.collection.title -%}
+            {%- elsif block.settings.text_below_image != blank -%}
+              {%- assign display_text = block.settings.text_below_image -%}
+            {%- endif -%}
+            
+            {%- if display_text != blank -%}
               <div class="card__text-below-image card__text-below-image--{{ block.id }}">
-                <p class="card__text-below-image-content card__text-below-image-content--{{ block.id }}">{{ block.settings.text_below_image }}</p>
+                <p class="card__text-below-image-content card__text-below-image-content--{{ block.id }}">{{ display_text }}</p>
               </div>
             {%- endif -%}
           </li>
@@ -408,7 +416,20 @@
           "step": 2,
           "unit": "px",
           "label": "Espaçamento (padding)",
-          "default": 16
+          "default": 8
+        },
+        {
+          "type": "checkbox",
+          "id": "text_bold",
+          "label": "Texto em negrito",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "use_collection_name",
+          "label": "Usar nome da coleção automaticamente",
+          "info": "Se ativado, usará o nome da coleção em vez do texto personalizado",
+          "default": false
         }
       ]
     }
