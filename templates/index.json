@@ -221,35 +221,50 @@
           "type": "featured_collection",
           "settings": {
             "collection": "adidas",
-            "text_below_image": "YSlas"
+            "text_below_image": "YSlas",
+            "text_color": "#000000",
+            "text_size": 19,
+            "text_spacing": 0
           }
         },
         "featured_collection_LXVE9K": {
           "type": "featured_collection",
           "settings": {
             "collection": "converse",
-            "text_below_image": ""
+            "text_below_image": "tetse",
+            "text_color": "#6b7280",
+            "text_size": 21,
+            "text_spacing": 0
           }
         },
         "featured_collection_TLbexH": {
           "type": "featured_collection",
           "settings": {
             "collection": "lacoste-1",
-            "text_below_image": ""
+            "text_below_image": "",
+            "text_color": "#6b7280",
+            "text_size": 14,
+            "text_spacing": 16
           }
         },
         "featured_collection_MTU3JJ": {
           "type": "featured_collection",
           "settings": {
             "collection": "nike",
-            "text_below_image": ""
+            "text_below_image": "",
+            "text_color": "#6b7280",
+            "text_size": 14,
+            "text_spacing": 16
           }
         },
         "featured_collection_YBQAaL": {
           "type": "featured_collection",
           "settings": {
             "collection": "novidades",
-            "text_below_image": ""
+            "text_below_image": "",
+            "text_color": "#6b7280",
+            "text_size": 14,
+            "text_spacing": 16
           }
         }
       },
