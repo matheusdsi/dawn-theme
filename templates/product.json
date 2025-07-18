@@ -23,6 +23,15 @@
             "parcelamento_font_size": 14
           }
         },
+        "visualizacao_produto_6hrMj9": {
+          "type": "visualizacao-produto",
+          "settings": {
+            "min_value": 5,
+            "max_value": 30,
+            "text_color": "#000000",
+            "show_dot": true
+          }
+        },
         "variant_picker_3PX6TQ": {
           "type": "variant_picker",
           "settings": {
@@ -38,15 +47,6 @@
             "size_chart_image": "shopify://shop_images/TESTEEEEE.jpg",
             "description": "",
             "icon": "shoe"
-          }
-        },
-        "visualizacao_produto_6hrMj9": {
-          "type": "visualizacao-produto",
-          "settings": {
-            "min_value": 5,
-            "max_value": 30,
-            "text_color": "#000000",
-            "show_dot": true
           }
         },
         "pix_P7cnxt": {
@@ -116,9 +116,9 @@
       "block_order": [
         "title",
         "price",
+        "visualizacao_produto_6hrMj9",
         "variant_picker_3PX6TQ",
         "size_chart_UKYcyA",
-        "visualizacao_produto_6hrMj9",
         "pix_P7cnxt",
         "buy_buttons_Ehga9d",
         "payment_icons_CrwLRV",
