@@ -224,7 +224,9 @@
             "text_below_image": "YSlas",
             "text_color": "#000000",
             "text_size": 19,
-            "text_spacing": 0
+            "text_spacing": 0,
+            "text_bold": true,
+            "use_collection_name": true
           }
         },
         "featured_collection_LXVE9K": {
@@ -232,9 +234,11 @@
           "settings": {
             "collection": "converse",
             "text_below_image": "tetse",
-            "text_color": "#6b7280",
-            "text_size": 21,
-            "text_spacing": 0
+            "text_color": "#1a1a1a",
+            "text_size": 19,
+            "text_spacing": 0,
+            "text_bold": true,
+            "use_collection_name": true
           }
         },
         "featured_collection_TLbexH": {
@@ -242,9 +246,11 @@
           "settings": {
             "collection": "lacoste-1",
             "text_below_image": "",
-            "text_color": "#6b7280",
-            "text_size": 14,
-            "text_spacing": 16
+            "text_color": "#000000",
+            "text_size": 19,
+            "text_spacing": 0,
+            "text_bold": true,
+            "use_collection_name": true
           }
         },
         "featured_collection_MTU3JJ": {
@@ -252,9 +258,11 @@
           "settings": {
             "collection": "nike",
             "text_below_image": "",
-            "text_color": "#6b7280",
-            "text_size": 14,
-            "text_spacing": 16
+            "text_color": "#000000",
+            "text_size": 19,
+            "text_spacing": 0,
+            "text_bold": true,
+            "use_collection_name": true
           }
         },
         "featured_collection_YBQAaL": {
@@ -262,9 +270,11 @@
           "settings": {
             "collection": "novidades",
             "text_below_image": "",
-            "text_color": "#6b7280",
-            "text_size": 14,
-            "text_spacing": 16
+            "text_color": "#000000",
+            "text_size": 19,
+            "text_spacing": 0,
+            "text_bold": true,
+            "use_collection_name": true
           }
         }
       },
