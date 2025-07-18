@@ -24,6 +24,18 @@
       border-radius: {{ section.settings.card_border_radius }}%;
     }
   {% endif %}
+
+  .card__text-below-image {
+    padding: 1rem 0.5rem 0;
+    text-align: center;
+  }
+
+  .card__text-below-image-content {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(var(--color-foreground), 0.75);
+    line-height: 1.4;
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -115,6 +127,11 @@
                card_round_enable:    section.settings.card_round_enable,
                card_border_radius:   section.settings.card_border_radius
             %}
+            {%- if block.settings.text_below_image != blank -%}
+              <div class="card__text-below-image">
+                <p class="card__text-below-image-content">{{ block.settings.text_below_image }}</p>
+              </div>
+            {%- endif -%}
           </li>
         {%- endfor -%}
       </ul>
@@ -349,6 +366,12 @@
           "type": "collection",
           "id": "collection",
           "label": "t:sections.collection-list.blocks.featured_collection.settings.collection.label"
+        },
+        {
+          "type": "text",
+          "id": "text_below_image",
+          "label": "Texto abaixo da imagem",
+          "info": "Texto que aparecerá abaixo da imagem desta coleção"
         }
       ]
     }

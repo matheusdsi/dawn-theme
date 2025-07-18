@@ -8,6 +8,7 @@
   - extend_height: {Boolean} Card height extends to available container space. Default: false (optional)
   - wrapper_class: {String} Wrapper class for card (optional)
   - placeholder_image: {String} Placeholder image when collection is empty (optional)
+  - text_below_image: {String} Text to display below the collection image (optional)
 
   Usage:
   {% render 'card-collection' %}
@@ -66,6 +67,7 @@
               class="motion-reduce">
           </div>
         </div>
+
       {%- endif -%}
 
       {% unless section.settings.card_round_enable %}
