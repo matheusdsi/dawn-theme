@@ -11,28 +11,28 @@
   %}
 {% endcomment %}
 {%- liquid
-  assign heading_1_empty = false
-  assign heading_2_empty = false
-  assign heading_3_empty = false
+  assign title_1_empty = false
+  assign title_2_empty = false
+  assign title_3_empty = false
   assign text_only_all_items = true
 
-  if block.settings.heading_1 == empty
-    assign heading_1_empty = true
+  if block.settings.title_1 == empty
+    assign title_1_empty = true
   endif
 
-  if block.settings.heading_2 == empty
-    assign heading_2_empty = true
+  if block.settings.title_2 == empty
+    assign title_2_empty = true
   endif
 
-  if block.settings.heading_3 == empty
-    assign heading_3_empty = true
+  if block.settings.title_3 == empty
+    assign title_3_empty = true
   endif
 
-  if heading_1_empty == false and block.settings.icon_1 != 'none' or block.settings.image_1 != null
+  if title_1_empty == false and block.settings.icon_1 != 'none' or block.settings.image_1 != null
     assign text_only_all_items = false
-  elsif heading_2_empty == false and block.settings.icon_2 != 'none' or block.settings.image_2 != null
+  elsif title_2_empty == false and block.settings.icon_2 != 'none' or block.settings.image_2 != null
     assign text_only_all_items = false
-  elsif heading_3_empty == false and block.settings.icon_3 != 'none' or block.settings.image_3 != null
+  elsif title_3_empty == false and block.settings.icon_3 != 'none' or block.settings.image_3 != null
     assign text_only_all_items = false
   endif
 -%}
@@ -40,70 +40,61 @@
   class="icon-with-text icon-with-text--{{ block.settings.layout }} list-unstyled{% if text_only_all_items %} icon-with-text--text-only{% endif %}"
   {{ block.shopify_attributes }}
 >
-  {%- unless heading_1_empty -%}
-    <li class="icon-with-text__item">
+  {%- unless title_1_empty -%}
+    <li class="icon-with-text__item" style="background-color: {{ block.settings.bg_color_1 }}; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
       {%- if block.settings.image_1 == null -%}
         {%- render 'icon-accordion', icon: block.settings.icon_1 -%}
       {%- else -%}
-        <img
-          src="{{ block.settings.image_1 | image_url }}"
-          {% if block.settings.image_1.alt != blank %}
-            alt="{{ block.settings.image_1.alt | escape }}"
-          {% else %}
-            role="presentation"
-          {% endif %}
-          height="auto"
-          width="auto"
-          loading="lazy"
-        >
+        <img src="{{ block.settings.image_1 | image_url }}" alt="{{ block.settings.image_1.alt | escape }}">
       {%- endif -%}
-      <span class="h4 inline-richtext">
-        {{- block.settings.heading_1 -}}
-      </span>
+      <div class="icon-with-text__content">
+        <h4 class="icon-with-text__title" style="color: {{ block.settings.title_color_1 }}; margin: 0 0 8px 0; font-weight: 600;">
+          {{ block.settings.title_1 }}
+        </h4>
+        {%- unless block.settings.body_1 == blank -%}
+          <div class="icon-with-text__body" style="color: {{ block.settings.body_color_1 }}; margin: 0; font-size: 14px; line-height: 1.4;">
+            {{ block.settings.body_1 }}
+          </div>
+        {%- endunless -%}
+      </div>
     </li>
   {%- endunless -%}
-  {%- unless heading_2_empty -%}
-    <li class="icon-with-text__item">
+  {%- unless title_2_empty -%}
+    <li class="icon-with-text__item" style="background-color: {{ block.settings.bg_color_2 }}; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
       {%- if block.settings.image_2 == null -%}
         {% render 'icon-accordion', icon: block.settings.icon_2 -%}
       {%- else -%}
-        <img
-          src="{{ block.settings.image_2 | image_url }}"
-          {% if block.settings.image_2.alt != blank %}
-            alt="{{ block.settings.image_2.alt | escape }}"
-          {% else %}
-            role="presentation"
-          {% endif %}
-          height="auto"
-          width="auto"
-          loading="lazy"
-        >
+        <img src="{{ block.settings.image_2 | image_url }}" alt="{{ block.settings.image_2.alt | escape }}">
       {%- endif -%}
-      <span class="h4 inline-richtext">
-        {{- block.settings.heading_2 -}}
-      </span>
+      <div class="icon-with-text__content">
+        <h4 class="icon-with-text__title" style="color: {{ block.settings.title_color_2 }}; margin: 0 0 8px 0; font-weight: 600;">
+          {{ block.settings.title_2 }}
+        </h4>
+        {%- unless block.settings.body_2 == blank -%}
+          <div class="icon-with-text__body" style="color: {{ block.settings.body_color_2 }}; margin: 0; font-size: 14px; line-height: 1.4;">
+            {{ block.settings.body_2 }}
+          </div>
+        {%- endunless -%}
+      </div>
     </li>
   {%- endunless -%}
-  {%- unless heading_3_empty -%}
-    <li class="icon-with-text__item">
+  {%- unless title_3_empty -%}
+    <li class="icon-with-text__item" style="background-color: {{ block.settings.bg_color_3 }}; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
       {%- if block.settings.image_3 == null -%}
         {% render 'icon-accordion', icon: block.settings.icon_3 -%}
       {%- else -%}
-        <img
-          src="{{ block.settings.image_3 | image_url }}"
-          {% if block.settings.image_3.alt != blank %}
-            alt="{{ block.settings.image_3.alt | escape }}"
-          {% else %}
-            role="presentation"
-          {% endif %}
-          height="auto"
-          width="auto"
-          loading="lazy"
-        >
+        <img src="{{ block.settings.image_3 | image_url }}" alt="{{ block.settings.image_3.alt | escape }}">
       {%- endif -%}
-      <span class="h4 inline-richtext">
-        {{- block.settings.heading_3 -}}
-      </span>
+      <div class="icon-with-text__content">
+        <h4 class="icon-with-text__title" style="color: {{ block.settings.title_color_3 }}; margin: 0 0 8px 0; font-weight: 600;">
+          {{ block.settings.title_3 }}
+        </h4>
+        {%- unless block.settings.body_3 == blank -%}
+          <div class="icon-with-text__body" style="color: {{ block.settings.body_color_3 }}; margin: 0; font-size: 14px; line-height: 1.4;">
+            {{ block.settings.body_3 }}
+          </div>
+        {%- endunless -%}
+      </div>
     </li>
   {%- endunless -%}
 </ul>

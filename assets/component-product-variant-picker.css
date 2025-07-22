@@ -223,6 +223,7 @@ variant-selects {
   line-height: 1.2;
   margin-bottom: 1.5rem;
   color: rgba(var(--color-foreground));
+  margin-top: 0;
 }
 
 .product__text,

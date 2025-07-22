@@ -1,0 +1,27 @@
+.price .price__badge-sale {
+    display: flex!important;
+    align-items: center;
+    max-width: 59px;
+    max-height: 31px;
+    padding-left: 5px;
+    padding-right: 5px;
+    justify-content: center;
+    font-size: 11px;
+}
+
+.price.price--large.price--on-sale.price--show-badge {
+    display: flex;
+    align-items: end;
+}
+
+.payment-toggle p {
+    margin-top: 10px;
+}
+
+.payment-toggle p {
+    margin: 0;
+}
+
+ul.icon-with-text.icon-with-text--vertical.list-unstyled {
+    margin-top: 0;
+}

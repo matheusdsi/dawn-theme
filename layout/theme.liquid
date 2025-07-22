@@ -256,6 +256,7 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'custom.css' | asset_url | stylesheet_tag }}
     {% comment %} Cores personalizadas {% endcomment %}
 <style>
   {% render 'custom-colors-inline' %}
