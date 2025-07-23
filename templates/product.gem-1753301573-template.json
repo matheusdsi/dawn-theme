@@ -59,8 +59,8 @@
           "type": "size_chart",
           "settings": {
             "button_text": "Tabela de Medidas",
-            "desktop_image": "shopify://shop_images/gempages_550216168531559207-ad18de5a-19e0-4663-b1df-146a98ffdfd1.jpg",
-            "mobile_image": "shopify://shop_images/gempages_550216168531559207-c1c9ff11-5564-4565-a94b-eee330e30e95.jpg",
+            "desktop_image": "shopify:\/\/shop_images\/gempages_550216168531559207-ad18de5a-19e0-4663-b1df-146a98ffdfd1.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/gempages_550216168531559207-c1c9ff11-5564-4565-a94b-eee330e30e95.jpg",
             "button_bg_color": "#ffffff",
             "button_text_color": "#000000",
             "button_border_color": "#cccccc",
@@ -127,7 +127,7 @@
             "bg_color": "#f7f7f7",
             "text_color": "#000000",
             "open_by_default": true,
-            "texto_pagamento": "<p><strong>PAGAMENTO SEGURO E RÁPIDO</strong></p>",
+            "texto_pagamento": "<p><strong>PAGAMENTO SEGURO E RÁPIDO<\/strong><\/p>",
             "mostrar_mercado_pago": true,
             "mostrar_pix": true,
             "mostrar_boleto": true,
@@ -156,19 +156,19 @@
             "layout": "vertical",
             "icon_1": "heart",
             "title_1": "Devoluções Gratuitas",
-            "body_1": "<p>Estorno de 100% do seu dinheiro em até 7 dias após o recebimento da mercadoria.</p>",
+            "body_1": "<p>Estorno de 100% do seu dinheiro em até 7 dias após o recebimento da mercadoria.<\/p>",
             "bg_color_1": "#ffffff",
             "title_color_1": "#000000",
             "body_color_1": "#666666",
             "icon_2": "return",
             "title_2": "Entrega Rápida",
-            "body_2": "<p>Receba seu produto em até 5 dias úteis com nosso sistema de entrega expressa.</p>",
+            "body_2": "<p>Receba seu produto em até 5 dias úteis com nosso sistema de entrega expressa.<\/p>",
             "bg_color_2": "#ffffff",
             "title_color_2": "#000000",
             "body_color_2": "#666666",
             "icon_3": "truck",
             "title_3": "Suporte Especializado",
-            "body_3": "<p>Nossa equipe está disponível para ajudar você com qualquer dúvida ou problema.</p>",
+            "body_3": "<p>Nossa equipe está disponível para ajudar você com qualquer dúvida ou problema.<\/p>",
             "bg_color_3": "#ffffff",
             "title_color_3": "#000000",
             "body_color_3": "#666666"
@@ -218,7 +218,7 @@
       "settings": {
         "title": "Tabela de Medidas",
         "heading_size": "h2",
-        "size_chart_image": "shopify://shop_images/TESTEEEEE.jpg",
+        "size_chart_image": "shopify:\/\/shop_images\/TESTEEEEE.jpg",
         "description": "",
         "image_border_radius": 4,
         "image_shadow_enabled": true,
@@ -255,7 +255,7 @@
           "settings": {
             "caption": "Legenda",
             "heading": "Linha",
-            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.</p>",
+            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.<\/p>",
             "button_label": "Etiqueta de botão",
             "button_link": ""
           }
@@ -265,7 +265,7 @@
           "settings": {
             "caption": "Legenda",
             "heading": "Linha",
-            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.</p>",
+            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.<\/p>",
             "button_label": "Etiqueta de botão",
             "button_link": ""
           }
@@ -275,7 +275,7 @@
           "settings": {
             "caption": "Legenda",
             "heading": "Linha",
-            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.</p>",
+            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.<\/p>",
             "button_label": "Etiqueta de botão",
             "button_link": ""
           }
@@ -285,7 +285,7 @@
           "settings": {
             "caption": "Legenda",
             "heading": "Linha",
-            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.</p>",
+            "text": "<p>Combine um texto com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.<\/p>",
             "button_label": "Etiqueta de botão",
             "button_link": ""
           }
