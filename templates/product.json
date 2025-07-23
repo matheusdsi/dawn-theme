@@ -34,7 +34,7 @@
           "settings": {
             "mostrar_parcelamento": true,
             "parcelamento_font_size": 14,
-            "badge_sale_bg_color": "#ff0000",
+            "badge_sale_bg_color": "#3cb333",
             "badge_sale_text_color": "#ffffff"
           }
         },
@@ -59,6 +59,8 @@
           "type": "size_chart",
           "settings": {
             "button_text": "Tabela de Medidas",
+            "desktop_image": "shopify://shop_images/gempages_550216168531559207-ad18de5a-19e0-4663-b1df-146a98ffdfd1.jpg",
+            "mobile_image": "shopify://shop_images/gempages_550216168531559207-c1c9ff11-5564-4565-a94b-eee330e30e95.jpg",
             "button_bg_color": "#ffffff",
             "button_text_color": "#000000",
             "button_border_color": "#cccccc",
@@ -89,13 +91,43 @@
             "margin_bottom": 0
           }
         },
+        "correios_DbdCyX": {
+          "type": "Correios",
+          "settings": {
+            "enable_days": false,
+            "dias_uteis_inicio": 11,
+            "dias_uteis_fim": 3,
+            "bg_color": "#ffffff",
+            "text_color": "#000000",
+            "use_location": true,
+            "free_shipping_color": "#36b376",
+            "localization_color": "#666666",
+            "frete_background_color": "#ffffff",
+            "margin_top_frete": 10,
+            "margin_bottom_frete": 10
+          }
+        },
+        "progress_bar_hLWPVi": {
+          "type": "progress-bar",
+          "settings": {
+            "total_items": 50,
+            "min_items_left": 19,
+            "max_items_left": 45,
+            "margin_top_progress": 15,
+            "margin_bottom_progress": 15,
+            "progress_bg_color": "#f5f5f5",
+            "progress_fill_color": "#28a745",
+            "progress_height": 15,
+            "font_size_progress": 14
+          }
+        },
         "payment_icons_CrwLRV": {
           "type": "payment-icons",
           "settings": {
             "bg_color": "#f7f7f7",
             "text_color": "#000000",
-            "open_by_default": false,
-            "texto_pagamento": "<p><strong>Pague com segurança</strong> usando <span style=\"text-decoration:underline\">estas opções de pagamento.</span></p>",
+            "open_by_default": true,
+            "texto_pagamento": "<p><strong>PAGAMENTO SEGURO E RÁPIDO</strong></p>",
             "mostrar_mercado_pago": true,
             "mostrar_pix": true,
             "mostrar_boleto": true,
@@ -105,23 +137,7 @@
             "mostrar_amex": true,
             "padding_top": 0,
             "padding_bottom": 16,
-            "icon_spacing_top": 16
-          }
-        },
-        "correios_DbdCyX": {
-          "type": "Correios",
-          "settings": {
-            "enable_days": true,
-            "dias_uteis_inicio": 11,
-            "dias_uteis_fim": 3,
-            "bg_color": "#ffffff",
-            "text_color": "#000000",
-            "use_location": false,
-            "free_shipping_color": "#36b376",
-            "localization_color": "#666666",
-            "frete_background_color": "#ffffff",
-            "margin_top_frete": 10,
-            "margin_bottom_frete": 10
+            "icon_spacing_top": 5
           }
         },
         "collapsible-row-0": {
@@ -132,6 +148,30 @@
             "icon": "clipboard",
             "content": "",
             "page": "materials-and-care"
+          }
+        },
+        "icon_with_text_zCqbqX": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "vertical",
+            "icon_1": "heart",
+            "title_1": "Devoluções Gratuitas",
+            "body_1": "<p>Estorno de 100% do seu dinheiro em até 7 dias após o recebimento da mercadoria.</p>",
+            "bg_color_1": "#ffffff",
+            "title_color_1": "#000000",
+            "body_color_1": "#666666",
+            "icon_2": "return",
+            "title_2": "Entrega Rápida",
+            "body_2": "<p>Receba seu produto em até 5 dias úteis com nosso sistema de entrega expressa.</p>",
+            "bg_color_2": "#ffffff",
+            "title_color_2": "#000000",
+            "body_color_2": "#666666",
+            "icon_3": "truck",
+            "title_3": "Suporte Especializado",
+            "body_3": "<p>Nossa equipe está disponível para ajudar você com qualquer dúvida ou problema.</p>",
+            "bg_color_3": "#ffffff",
+            "title_color_3": "#000000",
+            "body_color_3": "#666666"
           }
         },
         "description_n8VChX": {
@@ -148,9 +188,11 @@
         "size_chart_UKYcyA",
         "pix_P7cnxt",
         "buy_buttons_Ehga9d",
-        "payment_icons_CrwLRV",
         "correios_DbdCyX",
+        "progress_bar_hLWPVi",
+        "payment_icons_CrwLRV",
         "collapsible-row-0",
+        "icon_with_text_zCqbqX",
         "description_n8VChX"
       ],
       "settings": {
