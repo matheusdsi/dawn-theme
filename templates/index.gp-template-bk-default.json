@@ -8,748 +8,6 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "slide_avando_b3mx8c": {
-      "type": "slide-avando",
-      "blocks": {
-        "slide_8BAbap": {
-          "type": "slide",
-          "settings": {
-            "image_desktop": "shopify://shop_images/Desktop_-_3_233505ac-7c98-41bc-84d5-26e81a14e164.jpg",
-            "image_mobile": "shopify://shop_images/Mobile_-_3_f8239eb3-a2f6-466b-85de-2343db2c862b.jpg",
-            "use_full_width_image": true,
-            "image_width": 100,
-            "image_height": 100,
-            "border_radius": 0,
-            "image_fit": "cover",
-            "image_position": "center",
-            "overlay_style": "gradient",
-            "title": "",
-            "description": "",
-            "button_text": "",
-            "button_link": ""
-          }
-        },
-        "slide_Vp7PNY": {
-          "type": "slide",
-          "settings": {
-            "image_desktop": "shopify://shop_images/Desktop_-_2_7b59379c-0f54-442d-aece-b1e94cd31eb5.jpg",
-            "image_mobile": "shopify://shop_images/Mobile_-_2_d40632fd-7e27-4c12-881b-dbd01ad77228.jpg",
-            "use_full_width_image": true,
-            "image_width": 100,
-            "image_height": 100,
-            "border_radius": 0,
-            "image_fit": "cover",
-            "image_position": "center",
-            "overlay_style": "gradient",
-            "title": "",
-            "description": "",
-            "button_text": "",
-            "button_link": ""
-          }
-        },
-        "slide_FCLNFn": {
-          "type": "slide",
-          "settings": {
-            "image_desktop": "shopify://shop_images/Desktop_-_1_2761baba-36f0-4f44-a01b-78fe9f9ea1e7.jpg",
-            "image_mobile": "shopify://shop_images/Mobile_-_1.jpg",
-            "use_full_width_image": true,
-            "image_width": 100,
-            "image_height": 100,
-            "border_radius": 0,
-            "image_fit": "cover",
-            "image_position": "center",
-            "overlay_style": "gradient",
-            "title": "",
-            "description": "",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_8BAbap",
-        "slide_Vp7PNY",
-        "slide_FCLNFn"
-      ],
-      "name": "Trade Premium Slider",
-      "settings": {
-        "slider_height_desktop": 600,
-        "slider_height_mobile": 400,
-        "full_width": false,
-        "mobile_full_width": true,
-        "transition_speed": 800,
-        "autoplay": true,
-        "autoplay_speed": 4,
-        "progress_color": "#b333f8",
-        "progress_height": 7,
-        "show_arrows": true,
-        "arrow_color": "#ffffff",
-        "arrow_bg_color": "#ffffff",
-        "arrow_bg_opacity": 0,
-        "arrow_size": 60,
-        "arrow_icon_size": 24,
-        "arrow_border_radius": 30,
-        "arrow_position": 24,
-        "arrow_hover_scale": 110,
-        "arrow_border_width": 0,
-        "arrow_border_color": "#ffffff",
-        "show_dots": true,
-        "dot_active_color": "#ffffff",
-        "dot_inactive_color": "#ffffff",
-        "dot_inactive_opacity": 40,
-        "dot_size": 12,
-        "dot_border_radius": 50,
-        "dots_spacing": 12,
-        "dots_position": 24,
-        "dot_active_scale": 120,
-        "dot_border_width": 0,
-        "dot_border_color": "#ffffff",
-        "overlay_color": "#000000",
-        "overlay_opacity": 30,
-        "gradient_direction": 135,
-        "content_vertical_align": "center",
-        "content_horizontal_align": "center",
-        "text_align": "center",
-        "content_max_width": 600,
-        "text_color": "#ffffff",
-        "title_size": 48,
-        "title_weight": 700,
-        "title_line_height": 1.2,
-        "title_margin_bottom": 16,
-        "title_color": "#ffffff",
-        "description_size": 18,
-        "description_line_height": 1.6,
-        "description_margin_bottom": 32,
-        "description_opacity": 90,
-        "description_color": "#ffffff",
-        "button_bg_color": "#000000",
-        "button_text_color": "#ffffff",
-        "button_hover_bg_color": "#333333",
-        "button_hover_text_color": "#ffffff",
-        "button_padding_v": 16,
-        "button_padding_h": 32,
-        "button_border_radius": 4,
-        "button_font_weight": 600,
-        "button_font_size": 16,
-        "button_border_width": 0,
-        "button_border_color": "rgba(0,0,0,0)",
-        "button_hover_lift": 2,
-        "mobile_title_size": 32,
-        "mobile_description_size": 16,
-        "mobile_description_margin": 24,
-        "mobile_button_padding_v": 12,
-        "mobile_button_padding_h": 24,
-        "mobile_button_font_size": 14,
-        "mobile_arrow_size": 50,
-        "mobile_arrow_icon_size": 20,
-        "mobile_arrow_position": 16,
-        "mobile_dot_size": 10,
-        "mobile_dots_spacing": 8,
-        "mobile_dots_position": 16
-      }
-    },
-    "text_with_icons_FQyVi8": {
-      "type": "text-with-icons",
-      "blocks": {
-        "item_QTafHe": {
-          "type": "item",
-          "settings": {
-            "custom-icon": "picto-box",
-            "fill_icon": "#1d1d1d",
-            "title": "Frete Grátis",
-            "description": "<p>Frete Grátis em compras acima de R$ 299</p>"
-          }
-        },
-        "item_Dh8ayB": {
-          "type": "item",
-          "settings": {
-            "custom-icon": "picto-chat",
-            "fill_icon": "#000000",
-            "title": "Atendimento",
-            "description": "<p>Atendemos de segunda à sexta das 7h às 17h</p>"
-          }
-        },
-        "item_6qbY8N": {
-          "type": "item",
-          "settings": {
-            "custom-icon": "picto-credit-card",
-            "fill_icon": "#000000",
-            "title": "Parcelamento",
-            "description": "<p>Parcelamos em até 12x sem juros no cartão</p>"
-          }
-        },
-        "item_fjPAEN": {
-          "type": "item",
-          "settings": {
-            "custom-icon": "picto-secure-profile",
-            "fill_icon": "#000000",
-            "title": "Proteção SSL",
-            "description": "<p>Compra segura com certificado SSL e Selo Google</p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_QTafHe",
-        "item_Dh8ayB",
-        "item_6qbY8N",
-        "item_fjPAEN"
-      ],
-      "disabled": true,
-      "settings": {
-        "full_width": true,
-        "stack_on_mobile": false,
-        "auto_slide": true,
-        "slide_speed": 5,
-        "icon_aligment": "row",
-        "text_aligment": "flex-start",
-        "block_background_color": "#fcfcfc",
-        "section_background_color": "#ffffff",
-        "title_color": "#1d1d1d",
-        "text_color": "#1d1d1d",
-        "icon_size": 24,
-        "icon_gap": 12,
-        "block_spacing": 12,
-        "padding_top": 32,
-        "padding_bottom": 32
-      }
-    },
-    "collection_list_VajTqf": {
-      "type": "collection-list",
-      "blocks": {
-        "featured_collection_mVqhej": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "adidas",
-            "text_below_image": "YSlas",
-            "text_color": "#000000",
-            "text_size": 19,
-            "text_spacing": 0,
-            "text_bold": true,
-            "use_collection_name": true
-          }
-        },
-        "featured_collection_LXVE9K": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "converse",
-            "text_below_image": "tetse",
-            "text_color": "#1a1a1a",
-            "text_size": 19,
-            "text_spacing": 0,
-            "text_bold": true,
-            "use_collection_name": true
-          }
-        },
-        "featured_collection_TLbexH": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "lacoste-1",
-            "text_below_image": "",
-            "text_color": "#000000",
-            "text_size": 19,
-            "text_spacing": 0,
-            "text_bold": true,
-            "use_collection_name": true
-          }
-        },
-        "featured_collection_MTU3JJ": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "nike",
-            "text_below_image": "",
-            "text_color": "#000000",
-            "text_size": 19,
-            "text_spacing": 0,
-            "text_bold": true,
-            "use_collection_name": true
-          }
-        },
-        "featured_collection_YBQAaL": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "novidades",
-            "text_below_image": "",
-            "text_color": "#000000",
-            "text_size": 19,
-            "text_spacing": 0,
-            "text_bold": true,
-            "use_collection_name": true
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_mVqhej",
-        "featured_collection_LXVE9K",
-        "featured_collection_TLbexH",
-        "featured_collection_MTU3JJ",
-        "featured_collection_YBQAaL"
-      ],
-      "settings": {
-        "title": "Nossas Coleções",
-        "highlight_text": "",
-        "highlight_color": "#00b27a",
-        "heading_size": "h1",
-        "card_round_enable": true,
-        "card_border_radius": 4,
-        "image_ratio": "square",
-        "columns_desktop": 5,
-        "show_view_all": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "best_sellers_8Kyz8L": {
-      "type": "best-sellers",
-      "name": "Coleções de Produtos V2",
-      "settings": {
-        "title": "Mais Vendidos",
-        "collection": "adidas",
-        "products_to_show": 8,
-        "desktop_layout": "grid",
-        "desktop_products_per_row": "4",
-        "tablet_products_per_row": "3",
-        "desktop_section_title_font_size": 28,
-        "desktop_product_title_font_size": 16,
-        "desktop_original_price_font_size": 14,
-        "desktop_current_price_font_size": 22,
-        "desktop_installment_font_size": 12,
-        "desktop_sold_count_font_size": 12,
-        "mobile_section_title_font_size": 22,
-        "mobile_product_title_font_size": 14,
-        "mobile_original_price_font_size": 12,
-        "mobile_current_price_font_size": 18,
-        "mobile_installment_font_size": 12,
-        "mobile_sold_count_font_size": 10,
-        "products_gap": 10,
-        "section_padding": 25,
-        "image_height": 320,
-        "card_padding_top": 10,
-        "card_padding_horizontal": 10,
-        "card_padding_bottom": 10,
-        "title_margin_bottom": 0,
-        "original_price_margin_bottom": 0,
-        "current_price_margin_bottom": 0,
-        "installment_margin_bottom": 0,
-        "show_view_all_button": true,
-        "view_all_text": "Ver Mais",
-        "button_color": "#b333f8",
-        "button_hover_color": "#2b073b",
-        "show_installments": true,
-        "installment_count": "12",
-        "show_sold_count": true
-      }
-    },
-    "scrolling_text_Vi7UU8": {
-      "type": "scrolling-text",
-      "name": "Scrolling text",
-      "settings": {
-        "text": "Os melhores sneakers do mercado",
-        "text_size": "xlarge",
-        "text_style": "fill",
-        "scrolling_mode": "auto",
-        "speed_desktop": 30,
-        "speed_mobile": 15,
-        "section_bg": "#ffffff",
-        "section_bg_gradient": "",
-        "text_color": "#1a1a1a",
-        "text_gradient": "",
-        "padding_top": 16,
-        "padding_bottom": 16
-      }
-    },
-    "featured_collection_jzkP6A": {
-      "type": "featured-collection",
-      "disabled": true,
-      "settings": {
-        "collection": "nike",
-        "products_to_show": 10,
-        "title": "Mais Vendidos",
-        "heading_size": "h1",
-        "description": "",
-        "show_description": true,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": true,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "color_scheme": "",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": true,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 36,
-        "padding_bottom": 52
-      }
-    },
-    "multicolumn": {
-      "type": "multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": "shopify://collections/iphones"
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
-      "settings": {
-        "title": "",
-        "heading_size": "h2",
-        "image_width": "full",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
-        "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-2",
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 12,
-        "padding_bottom": 12
-      }
-    },
-    "best_sellers_JnUBM7": {
-      "type": "best-sellers",
-      "name": "Coleções de Produtos V2",
-      "settings": {
-        "title": "Novidades",
-        "collection": "novidades",
-        "products_to_show": 4,
-        "desktop_layout": "grid",
-        "desktop_products_per_row": "4",
-        "tablet_products_per_row": "3",
-        "desktop_section_title_font_size": 28,
-        "desktop_product_title_font_size": 16,
-        "desktop_original_price_font_size": 14,
-        "desktop_current_price_font_size": 22,
-        "desktop_installment_font_size": 12,
-        "desktop_sold_count_font_size": 12,
-        "mobile_section_title_font_size": 22,
-        "mobile_product_title_font_size": 14,
-        "mobile_original_price_font_size": 12,
-        "mobile_current_price_font_size": 18,
-        "mobile_installment_font_size": 12,
-        "mobile_sold_count_font_size": 10,
-        "products_gap": 10,
-        "section_padding": 25,
-        "image_height": 320,
-        "card_padding_top": 10,
-        "card_padding_horizontal": 10,
-        "card_padding_bottom": 10,
-        "title_margin_bottom": 0,
-        "original_price_margin_bottom": 0,
-        "current_price_margin_bottom": 0,
-        "installment_margin_bottom": 0,
-        "show_view_all_button": true,
-        "view_all_text": "Ver Mais",
-        "button_color": "#b333f8",
-        "button_hover_color": "#2b073b",
-        "show_installments": true,
-        "installment_count": "12",
-        "show_sold_count": true
-      }
-    },
-    "best_sellers_iziUfa": {
-      "type": "best-sellers",
-      "name": "Coleções Independentes",
-      "settings": {
-        "title": "Converse",
-        "collection": "converse",
-        "products_to_show": 8,
-        "desktop_layout": "grid",
-        "desktop_products_per_row": "4",
-        "tablet_products_per_row": "3",
-        "desktop_section_title_font_size": 28,
-        "desktop_product_title_font_size": 16,
-        "desktop_original_price_font_size": 14,
-        "desktop_current_price_font_size": 22,
-        "desktop_installment_font_size": 12,
-        "desktop_sold_count_font_size": 12,
-        "mobile_section_title_font_size": 22,
-        "mobile_product_title_font_size": 14,
-        "mobile_original_price_font_size": 12,
-        "mobile_current_price_font_size": 18,
-        "mobile_installment_font_size": 12,
-        "mobile_sold_count_font_size": 10,
-        "products_gap": 10,
-        "section_padding": 25,
-        "image_height": 320,
-        "card_padding_top": 10,
-        "card_padding_horizontal": 10,
-        "card_padding_bottom": 10,
-        "title_margin_bottom": 0,
-        "original_price_margin_bottom": 0,
-        "current_price_margin_bottom": 0,
-        "installment_margin_bottom": 0,
-        "show_view_all_button": true,
-        "view_all_text": "Ver Mais",
-        "button_color": "#b333f8",
-        "button_hover_color": "#2b073b",
-        "show_installments": true,
-        "installment_count": "12",
-        "show_sold_count": true
-      }
-    },
-    "image_parallax_MAiFg3": {
-      "type": "image-parallax",
-      "disabled": true,
-      "settings": {
-        "section_height": "500px",
-        "overlay_color": "#fae4e4",
-        "overlay_opacity": 0,
-        "text_color": "#ffffff"
-      }
-    },
-    "testimonials_slider_aVpYDT": {
-      "type": "testimonials-slider",
-      "blocks": {
-        "feedback_block_Q8DNeR": {
-          "type": "feedback_block",
-          "settings": {
-            "name": "Maria Pereira da Silva",
-            "date": "12/01/2025",
-            "comment": "<p>Gostei muito dos produtos, recomendo para todos que comprarem!</p>",
-            "rating": 5
-          }
-        },
-        "feedback_block_Xi6Myy": {
-          "type": "feedback_block",
-          "settings": {
-            "name": "João dos Santos",
-            "date": "21/01/2025",
-            "comment": "<p>Chegaram em poucos dias, valeu a pena!</p>",
-            "rating": 5
-          }
-        },
-        "feedback_block_Dm6pkr": {
-          "type": "feedback_block",
-          "settings": {
-            "name": "Reinaldo Gonçalves",
-            "date": "27/01/2025",
-            "comment": "<p>Vou recomendar a loja, comprei e em uma semana estava entregue em casa, excelente compra!</p>",
-            "rating": 5
-          }
-        },
-        "feedback_block_hfwMzm": {
-          "type": "feedback_block",
-          "settings": {
-            "name": "Luana Pereira S.",
-            "date": "09/02/2025",
-            "comment": "<p>Fui muito bem atendida, desde o início até a entrega do pacote, recomendo!</p>",
-            "rating": 5
-          }
-        },
-        "feedback_block_RVhyNh": {
-          "type": "feedback_block",
-          "settings": {
-            "name": "Maria Pereira da Silva",
-            "date": "12/01/2025",
-            "comment": "<p>Gostei muito dos produtos, recomendo para todos que comprarem!</p>",
-            "rating": 5
-          }
-        },
-        "feedback_block_hXArzc": {
-          "type": "feedback_block",
-          "settings": {
-            "name": "João dos Santos",
-            "date": "21/01/2025",
-            "comment": "<p>Chegaram em poucos dias, valeu a pena!</p>",
-            "rating": 5
-          }
-        },
-        "feedback_block_pJE4tV": {
-          "type": "feedback_block",
-          "settings": {
-            "name": "Reinaldo Gonçalves",
-            "date": "27/01/2025",
-            "comment": "<p>Vou recomendar a loja, comprei e em uma semana estava entregue em casa, excelente compra!</p>",
-            "rating": 5
-          }
-        },
-        "feedback_block_rmM3Qf": {
-          "type": "feedback_block",
-          "settings": {
-            "name": "Luana Pereira S.",
-            "date": "09/02/2025",
-            "comment": "<p>Fui muito bem atendida, desde o início até a entrega do pacote, recomendo!</p>",
-            "rating": 5
-          }
-        }
-      },
-      "block_order": [
-        "feedback_block_Q8DNeR",
-        "feedback_block_Xi6Myy",
-        "feedback_block_Dm6pkr",
-        "feedback_block_hfwMzm",
-        "feedback_block_RVhyNh",
-        "feedback_block_hXArzc",
-        "feedback_block_pJE4tV",
-        "feedback_block_rmM3Qf"
-      ],
-      "settings": {
-        "enable_page_width": true,
-        "desktop_gap": 16,
-        "auto_slide": true,
-        "slide_speed": 5,
-        "background_color": "#ffffff",
-        "card_background": "#ffffff",
-        "star_color": "#ffd640",
-        "text_color": "#000000",
-        "comment_text_color": "#333333",
-        "enable_border_bottom": true,
-        "card_border_color": "#a5ce39",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "image_parallax_RA9YVj": {
-      "type": "image-parallax",
-      "disabled": true,
-      "name": "Image Parallax",
-      "settings": {
-        "section_height": "600px",
-        "overlay_color": "#000000",
-        "overlay_opacity": 0.5,
-        "text_color": "#ffffff"
-      }
-    },
-    "slide_avando_Eg6gqt": {
-      "type": "slide-avando",
-      "blocks": {
-        "slide_bi8hJc": {
-          "type": "slide",
-          "settings": {
-            "image_desktop": "shopify://shop_images/Desktop_-_Rodape_27b375b6-1840-4de6-8a6f-c59316c3d810.jpg",
-            "image_mobile": "shopify://shop_images/Mobile_-_Rodape_6b3ab23f-18f3-4d47-a7f1-d0c02314a0b1.jpg",
-            "use_full_width_image": true,
-            "image_width": 100,
-            "image_height": 100,
-            "border_radius": 0,
-            "image_fit": "cover",
-            "image_position": "center",
-            "overlay_style": "gradient",
-            "title": "",
-            "description": "",
-            "button_text": "",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_bi8hJc"
-      ],
-      "name": "Trade Premium Slider",
-      "settings": {
-        "slider_height_desktop": 400,
-        "slider_height_mobile": 400,
-        "full_width": false,
-        "mobile_full_width": true,
-        "transition_speed": 800,
-        "autoplay": true,
-        "autoplay_speed": 5,
-        "progress_color": "#ffffff",
-        "progress_height": 3,
-        "show_arrows": true,
-        "arrow_color": "#ffffff",
-        "arrow_bg_color": "#ffffff",
-        "arrow_bg_opacity": 20,
-        "arrow_size": 60,
-        "arrow_icon_size": 24,
-        "arrow_border_radius": 50,
-        "arrow_position": 24,
-        "arrow_hover_scale": 110,
-        "arrow_border_width": 1,
-        "arrow_border_color": "#ffffff",
-        "show_dots": true,
-        "dot_active_color": "#ffffff",
-        "dot_inactive_color": "#ffffff",
-        "dot_inactive_opacity": 40,
-        "dot_size": 12,
-        "dot_border_radius": 50,
-        "dots_spacing": 12,
-        "dots_position": 24,
-        "dot_active_scale": 120,
-        "dot_border_width": 0,
-        "dot_border_color": "rgba(0,0,0,0)",
-        "overlay_color": "#000000",
-        "overlay_opacity": 30,
-        "gradient_direction": 135,
-        "content_vertical_align": "center",
-        "content_horizontal_align": "center",
-        "text_align": "center",
-        "content_max_width": 600,
-        "text_color": "#ffffff",
-        "title_size": 48,
-        "title_weight": 700,
-        "title_line_height": 1.2,
-        "title_margin_bottom": 16,
-        "title_color": "#ffffff",
-        "description_size": 18,
-        "description_line_height": 1.6,
-        "description_margin_bottom": 32,
-        "description_opacity": 90,
-        "description_color": "#ffffff",
-        "button_bg_color": "#000000",
-        "button_text_color": "#ffffff",
-        "button_hover_bg_color": "#333333",
-        "button_hover_text_color": "#ffffff",
-        "button_padding_v": 16,
-        "button_padding_h": 32,
-        "button_border_radius": 4,
-        "button_font_weight": 600,
-        "button_font_size": 16,
-        "button_border_width": 0,
-        "button_border_color": "rgba(0,0,0,0)",
-        "button_hover_lift": 2,
-        "mobile_title_size": 32,
-        "mobile_description_size": 16,
-        "mobile_description_margin": 24,
-        "mobile_button_padding_v": 12,
-        "mobile_button_padding_h": 24,
-        "mobile_button_font_size": 14,
-        "mobile_arrow_size": 50,
-        "mobile_arrow_icon_size": 20,
-        "mobile_arrow_position": 16,
-        "mobile_dot_size": 10,
-        "mobile_dots_spacing": 8,
-        "mobile_dots_position": 16
-      }
-    }
-  },
   "order": [
     "slide_avando_b3mx8c",
     "text_with_icons_FQyVi8",
@@ -764,5 +22,747 @@
     "testimonials_slider_aVpYDT",
     "image_parallax_RA9YVj",
     "slide_avando_Eg6gqt"
-  ]
+  ],
+  "sections": {
+    "best_sellers_8Kyz8L": {
+      "name": "Coleções de Produtos V2",
+      "settings": {
+        "button_color": "#b333f8",
+        "button_hover_color": "#2b073b",
+        "card_padding_bottom": 10,
+        "card_padding_horizontal": 10,
+        "card_padding_top": 10,
+        "collection": "adidas",
+        "current_price_margin_bottom": 0,
+        "desktop_current_price_font_size": 22,
+        "desktop_installment_font_size": 12,
+        "desktop_layout": "grid",
+        "desktop_original_price_font_size": 14,
+        "desktop_product_title_font_size": 16,
+        "desktop_products_per_row": "4",
+        "desktop_section_title_font_size": 28,
+        "desktop_sold_count_font_size": 12,
+        "image_height": 320,
+        "installment_count": "12",
+        "installment_margin_bottom": 0,
+        "mobile_current_price_font_size": 18,
+        "mobile_installment_font_size": 12,
+        "mobile_original_price_font_size": 12,
+        "mobile_product_title_font_size": 14,
+        "mobile_section_title_font_size": 22,
+        "mobile_sold_count_font_size": 10,
+        "original_price_margin_bottom": 0,
+        "products_gap": 10,
+        "products_to_show": 8,
+        "section_padding": 25,
+        "show_installments": true,
+        "show_sold_count": true,
+        "show_view_all_button": true,
+        "tablet_products_per_row": "3",
+        "title": "Mais Vendidos",
+        "title_margin_bottom": 0,
+        "view_all_text": "Ver Mais"
+      },
+      "type": "best-sellers"
+    },
+    "best_sellers_JnUBM7": {
+      "name": "Coleções de Produtos V2",
+      "settings": {
+        "button_color": "#b333f8",
+        "button_hover_color": "#2b073b",
+        "card_padding_bottom": 10,
+        "card_padding_horizontal": 10,
+        "card_padding_top": 10,
+        "collection": "novidades",
+        "current_price_margin_bottom": 0,
+        "desktop_current_price_font_size": 22,
+        "desktop_installment_font_size": 12,
+        "desktop_layout": "grid",
+        "desktop_original_price_font_size": 14,
+        "desktop_product_title_font_size": 16,
+        "desktop_products_per_row": "4",
+        "desktop_section_title_font_size": 28,
+        "desktop_sold_count_font_size": 12,
+        "image_height": 320,
+        "installment_count": "12",
+        "installment_margin_bottom": 0,
+        "mobile_current_price_font_size": 18,
+        "mobile_installment_font_size": 12,
+        "mobile_original_price_font_size": 12,
+        "mobile_product_title_font_size": 14,
+        "mobile_section_title_font_size": 22,
+        "mobile_sold_count_font_size": 10,
+        "original_price_margin_bottom": 0,
+        "products_gap": 10,
+        "products_to_show": 4,
+        "section_padding": 25,
+        "show_installments": true,
+        "show_sold_count": true,
+        "show_view_all_button": true,
+        "tablet_products_per_row": "3",
+        "title": "Novidades",
+        "title_margin_bottom": 0,
+        "view_all_text": "Ver Mais"
+      },
+      "type": "best-sellers"
+    },
+    "best_sellers_iziUfa": {
+      "name": "Coleções Independentes",
+      "settings": {
+        "button_color": "#b333f8",
+        "button_hover_color": "#2b073b",
+        "card_padding_bottom": 10,
+        "card_padding_horizontal": 10,
+        "card_padding_top": 10,
+        "collection": "converse",
+        "current_price_margin_bottom": 0,
+        "desktop_current_price_font_size": 22,
+        "desktop_installment_font_size": 12,
+        "desktop_layout": "grid",
+        "desktop_original_price_font_size": 14,
+        "desktop_product_title_font_size": 16,
+        "desktop_products_per_row": "4",
+        "desktop_section_title_font_size": 28,
+        "desktop_sold_count_font_size": 12,
+        "image_height": 320,
+        "installment_count": "12",
+        "installment_margin_bottom": 0,
+        "mobile_current_price_font_size": 18,
+        "mobile_installment_font_size": 12,
+        "mobile_original_price_font_size": 12,
+        "mobile_product_title_font_size": 14,
+        "mobile_section_title_font_size": 22,
+        "mobile_sold_count_font_size": 10,
+        "original_price_margin_bottom": 0,
+        "products_gap": 10,
+        "products_to_show": 8,
+        "section_padding": 25,
+        "show_installments": true,
+        "show_sold_count": true,
+        "show_view_all_button": true,
+        "tablet_products_per_row": "3",
+        "title": "Converse",
+        "title_margin_bottom": 0,
+        "view_all_text": "Ver Mais"
+      },
+      "type": "best-sellers"
+    },
+    "collection_list_VajTqf": {
+      "block_order": [
+        "featured_collection_mVqhej",
+        "featured_collection_LXVE9K",
+        "featured_collection_TLbexH",
+        "featured_collection_MTU3JJ",
+        "featured_collection_YBQAaL"
+      ],
+      "blocks": {
+        "featured_collection_LXVE9K": {
+          "settings": {
+            "collection": "converse",
+            "text_below_image": "tetse",
+            "text_bold": true,
+            "text_color": "#1a1a1a",
+            "text_size": 19,
+            "text_spacing": 0,
+            "use_collection_name": true
+          },
+          "type": "featured_collection"
+        },
+        "featured_collection_MTU3JJ": {
+          "settings": {
+            "collection": "nike",
+            "text_below_image": "",
+            "text_bold": true,
+            "text_color": "#000000",
+            "text_size": 19,
+            "text_spacing": 0,
+            "use_collection_name": true
+          },
+          "type": "featured_collection"
+        },
+        "featured_collection_TLbexH": {
+          "settings": {
+            "collection": "lacoste-1",
+            "text_below_image": "",
+            "text_bold": true,
+            "text_color": "#000000",
+            "text_size": 19,
+            "text_spacing": 0,
+            "use_collection_name": true
+          },
+          "type": "featured_collection"
+        },
+        "featured_collection_YBQAaL": {
+          "settings": {
+            "collection": "novidades",
+            "text_below_image": "",
+            "text_bold": true,
+            "text_color": "#000000",
+            "text_size": 19,
+            "text_spacing": 0,
+            "use_collection_name": true
+          },
+          "type": "featured_collection"
+        },
+        "featured_collection_mVqhej": {
+          "settings": {
+            "collection": "adidas",
+            "text_below_image": "YSlas",
+            "text_bold": true,
+            "text_color": "#000000",
+            "text_size": 19,
+            "text_spacing": 0,
+            "use_collection_name": true
+          },
+          "type": "featured_collection"
+        }
+      },
+      "settings": {
+        "card_border_radius": 4,
+        "card_round_enable": true,
+        "columns_desktop": 5,
+        "columns_mobile": "2",
+        "heading_size": "h1",
+        "highlight_color": "#00b27a",
+        "highlight_text": "",
+        "image_ratio": "square",
+        "padding_bottom": 36,
+        "padding_top": 36,
+        "show_view_all": false,
+        "swipe_on_mobile": true,
+        "title": "Nossas Coleções"
+      },
+      "type": "collection-list"
+    },
+    "featured_collection_jzkP6A": {
+      "disabled": true,
+      "settings": {
+        "collection": "nike",
+        "color_scheme": "",
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "description": "",
+        "description_style": "body",
+        "enable_desktop_slider": true,
+        "full_width": false,
+        "heading_size": "h1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "padding_bottom": 52,
+        "padding_top": 36,
+        "products_to_show": 10,
+        "quick_add": "none",
+        "show_description": true,
+        "show_rating": true,
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_view_all": false,
+        "swipe_on_mobile": true,
+        "title": "Mais Vendidos",
+        "view_all_style": "solid"
+      },
+      "type": "featured-collection"
+    },
+    "image_parallax_MAiFg3": {
+      "disabled": true,
+      "settings": {
+        "overlay_color": "#fae4e4",
+        "overlay_opacity": 0,
+        "section_height": "500px",
+        "text_color": "#ffffff"
+      },
+      "type": "image-parallax"
+    },
+    "image_parallax_RA9YVj": {
+      "disabled": true,
+      "name": "Image Parallax",
+      "settings": {
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.5,
+        "section_height": "600px",
+        "text_color": "#ffffff"
+      },
+      "type": "image-parallax"
+    },
+    "multicolumn": {
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ],
+      "blocks": {
+        "column1": {
+          "settings": {
+            "link": "shopify://collections/iphones",
+            "link_label": "",
+            "text": "",
+            "title": ""
+          },
+          "type": "column"
+        },
+        "column2": {
+          "settings": {
+            "link": "",
+            "link_label": "",
+            "text": "",
+            "title": ""
+          },
+          "type": "column"
+        },
+        "column3": {
+          "settings": {
+            "link": "",
+            "link_label": "",
+            "text": "",
+            "title": ""
+          },
+          "type": "column"
+        }
+      },
+      "settings": {
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "scheme-2",
+        "column_alignment": "center",
+        "columns_desktop": 3,
+        "columns_mobile": "1",
+        "heading_size": "h2",
+        "image_ratio": "adapt",
+        "image_width": "full",
+        "padding_bottom": 12,
+        "padding_top": 12,
+        "swipe_on_mobile": false,
+        "title": ""
+      },
+      "type": "multicolumn"
+    },
+    "scrolling_text_Vi7UU8": {
+      "name": "Scrolling text",
+      "settings": {
+        "padding_bottom": 16,
+        "padding_top": 16,
+        "scrolling_mode": "auto",
+        "section_bg": "#ffffff",
+        "section_bg_gradient": "",
+        "speed_desktop": 30,
+        "speed_mobile": 15,
+        "text": "Os melhores sneakers do mercado",
+        "text_color": "#1a1a1a",
+        "text_gradient": "",
+        "text_size": "xlarge",
+        "text_style": "fill"
+      },
+      "type": "scrolling-text"
+    },
+    "slide_avando_Eg6gqt": {
+      "block_order": [
+        "slide_bi8hJc"
+      ],
+      "blocks": {
+        "slide_bi8hJc": {
+          "settings": {
+            "border_radius": 0,
+            "button_link": "",
+            "button_text": "",
+            "description": "",
+            "image_desktop": "shopify://shop_images/Desktop_-_Rodape_27b375b6-1840-4de6-8a6f-c59316c3d810.jpg",
+            "image_fit": "cover",
+            "image_height": 100,
+            "image_mobile": "shopify://shop_images/Mobile_-_Rodape_6b3ab23f-18f3-4d47-a7f1-d0c02314a0b1.jpg",
+            "image_position": "center",
+            "image_width": 100,
+            "overlay_style": "gradient",
+            "title": "",
+            "use_full_width_image": true
+          },
+          "type": "slide"
+        }
+      },
+      "name": "Trade Premium Slider",
+      "settings": {
+        "arrow_bg_color": "#ffffff",
+        "arrow_bg_opacity": 20,
+        "arrow_border_color": "#ffffff",
+        "arrow_border_radius": 50,
+        "arrow_border_width": 1,
+        "arrow_color": "#ffffff",
+        "arrow_hover_scale": 110,
+        "arrow_icon_size": 24,
+        "arrow_position": 24,
+        "arrow_size": 60,
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "button_bg_color": "#000000",
+        "button_border_color": "rgba(0,0,0,0)",
+        "button_border_radius": 4,
+        "button_border_width": 0,
+        "button_font_size": 16,
+        "button_font_weight": 600,
+        "button_hover_bg_color": "#333333",
+        "button_hover_lift": 2,
+        "button_hover_text_color": "#ffffff",
+        "button_padding_h": 32,
+        "button_padding_v": 16,
+        "button_text_color": "#ffffff",
+        "content_horizontal_align": "center",
+        "content_max_width": 600,
+        "content_vertical_align": "center",
+        "description_color": "#ffffff",
+        "description_line_height": 1.6,
+        "description_margin_bottom": 32,
+        "description_opacity": 90,
+        "description_size": 18,
+        "dot_active_color": "#ffffff",
+        "dot_active_scale": 120,
+        "dot_border_color": "rgba(0,0,0,0)",
+        "dot_border_radius": 50,
+        "dot_border_width": 0,
+        "dot_inactive_color": "#ffffff",
+        "dot_inactive_opacity": 40,
+        "dot_size": 12,
+        "dots_position": 24,
+        "dots_spacing": 12,
+        "full_width": false,
+        "gradient_direction": 135,
+        "mobile_arrow_icon_size": 20,
+        "mobile_arrow_position": 16,
+        "mobile_arrow_size": 50,
+        "mobile_button_font_size": 14,
+        "mobile_button_padding_h": 24,
+        "mobile_button_padding_v": 12,
+        "mobile_description_margin": 24,
+        "mobile_description_size": 16,
+        "mobile_dot_size": 10,
+        "mobile_dots_position": 16,
+        "mobile_dots_spacing": 8,
+        "mobile_full_width": true,
+        "mobile_title_size": 32,
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "progress_color": "#ffffff",
+        "progress_height": 3,
+        "show_arrows": true,
+        "show_dots": true,
+        "slider_height_desktop": 400,
+        "slider_height_mobile": 400,
+        "text_align": "center",
+        "text_color": "#ffffff",
+        "title_color": "#ffffff",
+        "title_line_height": 1.2,
+        "title_margin_bottom": 16,
+        "title_size": 48,
+        "title_weight": 700,
+        "transition_speed": 800
+      },
+      "type": "slide-avando"
+    },
+    "slide_avando_b3mx8c": {
+      "block_order": [
+        "slide_8BAbap",
+        "slide_Vp7PNY",
+        "slide_FCLNFn"
+      ],
+      "blocks": {
+        "slide_8BAbap": {
+          "settings": {
+            "border_radius": 0,
+            "button_link": "",
+            "button_text": "",
+            "description": "",
+            "image_desktop": "shopify://shop_images/Desktop_-_3_233505ac-7c98-41bc-84d5-26e81a14e164.jpg",
+            "image_fit": "cover",
+            "image_height": 100,
+            "image_mobile": "shopify://shop_images/Mobile_-_3_f8239eb3-a2f6-466b-85de-2343db2c862b.jpg",
+            "image_position": "center",
+            "image_width": 100,
+            "overlay_style": "gradient",
+            "title": "",
+            "use_full_width_image": true
+          },
+          "type": "slide"
+        },
+        "slide_FCLNFn": {
+          "settings": {
+            "border_radius": 0,
+            "button_link": "",
+            "button_text": "",
+            "description": "",
+            "image_desktop": "shopify://shop_images/Desktop_-_1_2761baba-36f0-4f44-a01b-78fe9f9ea1e7.jpg",
+            "image_fit": "cover",
+            "image_height": 100,
+            "image_mobile": "shopify://shop_images/Mobile_-_1.jpg",
+            "image_position": "center",
+            "image_width": 100,
+            "overlay_style": "gradient",
+            "title": "",
+            "use_full_width_image": true
+          },
+          "type": "slide"
+        },
+        "slide_Vp7PNY": {
+          "settings": {
+            "border_radius": 0,
+            "button_link": "",
+            "button_text": "",
+            "description": "",
+            "image_desktop": "shopify://shop_images/Desktop_-_2_7b59379c-0f54-442d-aece-b1e94cd31eb5.jpg",
+            "image_fit": "cover",
+            "image_height": 100,
+            "image_mobile": "shopify://shop_images/Mobile_-_2_d40632fd-7e27-4c12-881b-dbd01ad77228.jpg",
+            "image_position": "center",
+            "image_width": 100,
+            "overlay_style": "gradient",
+            "title": "",
+            "use_full_width_image": true
+          },
+          "type": "slide"
+        }
+      },
+      "name": "Trade Premium Slider",
+      "settings": {
+        "arrow_bg_color": "#ffffff",
+        "arrow_bg_opacity": 0,
+        "arrow_border_color": "#ffffff",
+        "arrow_border_radius": 30,
+        "arrow_border_width": 0,
+        "arrow_color": "#ffffff",
+        "arrow_hover_scale": 110,
+        "arrow_icon_size": 24,
+        "arrow_position": 24,
+        "arrow_size": 60,
+        "autoplay": true,
+        "autoplay_speed": 4,
+        "button_bg_color": "#000000",
+        "button_border_color": "rgba(0,0,0,0)",
+        "button_border_radius": 4,
+        "button_border_width": 0,
+        "button_font_size": 16,
+        "button_font_weight": 600,
+        "button_hover_bg_color": "#333333",
+        "button_hover_lift": 2,
+        "button_hover_text_color": "#ffffff",
+        "button_padding_h": 32,
+        "button_padding_v": 16,
+        "button_text_color": "#ffffff",
+        "content_horizontal_align": "center",
+        "content_max_width": 600,
+        "content_vertical_align": "center",
+        "description_color": "#ffffff",
+        "description_line_height": 1.6,
+        "description_margin_bottom": 32,
+        "description_opacity": 90,
+        "description_size": 18,
+        "dot_active_color": "#ffffff",
+        "dot_active_scale": 120,
+        "dot_border_color": "#ffffff",
+        "dot_border_radius": 50,
+        "dot_border_width": 0,
+        "dot_inactive_color": "#ffffff",
+        "dot_inactive_opacity": 40,
+        "dot_size": 12,
+        "dots_position": 24,
+        "dots_spacing": 12,
+        "full_width": false,
+        "gradient_direction": 135,
+        "mobile_arrow_icon_size": 20,
+        "mobile_arrow_position": 16,
+        "mobile_arrow_size": 50,
+        "mobile_button_font_size": 14,
+        "mobile_button_padding_h": 24,
+        "mobile_button_padding_v": 12,
+        "mobile_description_margin": 24,
+        "mobile_description_size": 16,
+        "mobile_dot_size": 10,
+        "mobile_dots_position": 16,
+        "mobile_dots_spacing": 8,
+        "mobile_full_width": true,
+        "mobile_title_size": 32,
+        "overlay_color": "#000000",
+        "overlay_opacity": 30,
+        "progress_color": "#b333f8",
+        "progress_height": 7,
+        "show_arrows": true,
+        "show_dots": true,
+        "slider_height_desktop": 600,
+        "slider_height_mobile": 400,
+        "text_align": "center",
+        "text_color": "#ffffff",
+        "title_color": "#ffffff",
+        "title_line_height": 1.2,
+        "title_margin_bottom": 16,
+        "title_size": 48,
+        "title_weight": 700,
+        "transition_speed": 800
+      },
+      "type": "slide-avando"
+    },
+    "testimonials_slider_aVpYDT": {
+      "block_order": [
+        "feedback_block_Q8DNeR",
+        "feedback_block_Xi6Myy",
+        "feedback_block_Dm6pkr",
+        "feedback_block_hfwMzm",
+        "feedback_block_RVhyNh",
+        "feedback_block_hXArzc",
+        "feedback_block_pJE4tV",
+        "feedback_block_rmM3Qf"
+      ],
+      "blocks": {
+        "feedback_block_Dm6pkr": {
+          "settings": {
+            "comment": "<p>Vou recomendar a loja, comprei e em uma semana estava entregue em casa, excelente compra!</p>",
+            "date": "27/01/2025",
+            "name": "Reinaldo Gonçalves",
+            "rating": 5
+          },
+          "type": "feedback_block"
+        },
+        "feedback_block_Q8DNeR": {
+          "settings": {
+            "comment": "<p>Gostei muito dos produtos, recomendo para todos que comprarem!</p>",
+            "date": "12/01/2025",
+            "name": "Maria Pereira da Silva",
+            "rating": 5
+          },
+          "type": "feedback_block"
+        },
+        "feedback_block_RVhyNh": {
+          "settings": {
+            "comment": "<p>Gostei muito dos produtos, recomendo para todos que comprarem!</p>",
+            "date": "12/01/2025",
+            "name": "Maria Pereira da Silva",
+            "rating": 5
+          },
+          "type": "feedback_block"
+        },
+        "feedback_block_Xi6Myy": {
+          "settings": {
+            "comment": "<p>Chegaram em poucos dias, valeu a pena!</p>",
+            "date": "21/01/2025",
+            "name": "João dos Santos",
+            "rating": 5
+          },
+          "type": "feedback_block"
+        },
+        "feedback_block_hXArzc": {
+          "settings": {
+            "comment": "<p>Chegaram em poucos dias, valeu a pena!</p>",
+            "date": "21/01/2025",
+            "name": "João dos Santos",
+            "rating": 5
+          },
+          "type": "feedback_block"
+        },
+        "feedback_block_hfwMzm": {
+          "settings": {
+            "comment": "<p>Fui muito bem atendida, desde o início até a entrega do pacote, recomendo!</p>",
+            "date": "09/02/2025",
+            "name": "Luana Pereira S.",
+            "rating": 5
+          },
+          "type": "feedback_block"
+        },
+        "feedback_block_pJE4tV": {
+          "settings": {
+            "comment": "<p>Vou recomendar a loja, comprei e em uma semana estava entregue em casa, excelente compra!</p>",
+            "date": "27/01/2025",
+            "name": "Reinaldo Gonçalves",
+            "rating": 5
+          },
+          "type": "feedback_block"
+        },
+        "feedback_block_rmM3Qf": {
+          "settings": {
+            "comment": "<p>Fui muito bem atendida, desde o início até a entrega do pacote, recomendo!</p>",
+            "date": "09/02/2025",
+            "name": "Luana Pereira S.",
+            "rating": 5
+          },
+          "type": "feedback_block"
+        }
+      },
+      "settings": {
+        "auto_slide": true,
+        "background_color": "#ffffff",
+        "card_background": "#ffffff",
+        "card_border_color": "#a5ce39",
+        "comment_text_color": "#333333",
+        "desktop_gap": 16,
+        "enable_border_bottom": true,
+        "enable_page_width": true,
+        "padding_bottom": 36,
+        "padding_top": 36,
+        "slide_speed": 5,
+        "star_color": "#ffd640",
+        "text_color": "#000000"
+      },
+      "type": "testimonials-slider"
+    },
+    "text_with_icons_FQyVi8": {
+      "block_order": [
+        "item_QTafHe",
+        "item_Dh8ayB",
+        "item_6qbY8N",
+        "item_fjPAEN"
+      ],
+      "blocks": {
+        "item_6qbY8N": {
+          "settings": {
+            "custom-icon": "picto-credit-card",
+            "description": "<p>Parcelamos em até 12x sem juros no cartão</p>",
+            "fill_icon": "#000000",
+            "title": "Parcelamento"
+          },
+          "type": "item"
+        },
+        "item_Dh8ayB": {
+          "settings": {
+            "custom-icon": "picto-chat",
+            "description": "<p>Atendemos de segunda à sexta das 7h às 17h</p>",
+            "fill_icon": "#000000",
+            "title": "Atendimento"
+          },
+          "type": "item"
+        },
+        "item_QTafHe": {
+          "settings": {
+            "custom-icon": "picto-box",
+            "description": "<p>Frete Grátis em compras acima de R$ 299</p>",
+            "fill_icon": "#1d1d1d",
+            "title": "Frete Grátis"
+          },
+          "type": "item"
+        },
+        "item_fjPAEN": {
+          "settings": {
+            "custom-icon": "picto-secure-profile",
+            "description": "<p>Compra segura com certificado SSL e Selo Google</p>",
+            "fill_icon": "#000000",
+            "title": "Proteção SSL"
+          },
+          "type": "item"
+        }
+      },
+      "disabled": true,
+      "settings": {
+        "auto_slide": true,
+        "block_background_color": "#fcfcfc",
+        "block_spacing": 12,
+        "full_width": true,
+        "icon_aligment": "row",
+        "icon_gap": 12,
+        "icon_size": 24,
+        "padding_bottom": 32,
+        "padding_top": 32,
+        "section_background_color": "#ffffff",
+        "slide_speed": 5,
+        "stack_on_mobile": false,
+        "text_aligment": "flex-start",
+        "text_color": "#1d1d1d",
+        "title_color": "#1d1d1d"
+      },
+      "type": "text-with-icons"
+    }
+  }
 }
