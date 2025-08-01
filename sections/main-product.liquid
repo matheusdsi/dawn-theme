@@ -914,7 +914,10 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 {%- when 'pre-title' -%}
-      <div class="flex stamps-sales items-center gap-2">
+      <div class="flex stamps-sales items-center gap-2 style="
+    display: inline-flex;
+    gap: 6px;
+    align-items: center">
         {% if block.settings.enable_sales != blank %}
           {% assign min = 1 %}
           {% assign max = 100 %}
