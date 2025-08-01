@@ -301,10 +301,8 @@ a.product__text {
 
   .product__info-container > *:first-child {
     margin-top: 0;
-    display: inline-block;
   }
-}  
-
+}
 
 .product__description-title {
   font-weight: 600;
