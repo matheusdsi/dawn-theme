@@ -301,11 +301,10 @@ a.product__text {
 
   .product__info-container > *:first-child {
     margin-top: 0;
-    gap: 6px;
-    display: inline-flex;
+    display: inline-block;
   }
-  }  
-}
+}  
+
 
 .product__description-title {
   font-weight: 600;
