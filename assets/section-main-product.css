@@ -304,6 +304,7 @@ a.product__text {
     gap: 6px;
     display: inline-flex;
 }
+}
 
 .product__description-title {
   font-weight: 600;
