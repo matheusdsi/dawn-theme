@@ -914,7 +914,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 
 {%- when 'pre-title' -%}
-      <div class="flex stamps-sales items-center gap-2 style="
+      <div class="flex stamps-sales items-center gap-2" style="
     display: inline-flex;
     gap: 6px;
     align-items: center">
@@ -924,9 +924,9 @@ document.addEventListener('DOMContentLoaded', function() {
           {% assign diff = max | minus: min %}
           {% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
           {% if block.settings.use-random != blank %}
-            <span style="background-color: {{ block.settings.sales_bg_color }}; color: {{ block.settings.sales_text_color }}; padding: 4px 8px; border-radius: 4px; font-size: {{ block.settings.font_size }}px;">{{ randomNumber }} vendidos</span>
+            <span style="background-color: {{ block.settings.sales_bg_color }}; color: {{ block.settings.sales_text_color }}; padding: 3px 8px; border-radius: 4px; font-size: {{ block.settings.font_size }}px;">{{ randomNumber }} vendidos</span>
           {% else %}
-            <span style="background-color: {{ block.settings.sales_bg_color }}; color: {{ block.settings.sales_text_color }}; padding: 4px 8px; border-radius: 4px; font-size: {{ block.settings.font_size }}px;">{{ product.selected_or_first_available_variant.inventory_quantity }} vendidos</span>
+            <span style="background-color: {{ block.settings.sales_bg_color }}; color: {{ block.settings.sales_text_color }}; padding: 3px 8px; border-radius: 4px; font-size: {{ block.settings.font_size }}px;">{{ product.selected_or_first_available_variant.inventory_quantity }} vendidos</span>
           {% endif %}
         {% endif %}
         {% if block.settings.small_text != blank %}
