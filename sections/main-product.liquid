@@ -633,7 +633,7 @@
 
         {%- if block.settings.mostrar_parcelamento -%}
           <div class="parcelamento-sem-icone" style="font-size: {{ block.settings.parcelamento_font_size }}px;margin-top: -18px;">
-            {%- render 'installment', product: product, exibir_icone: fa''lse -%}
+            {%- render 'installment', product: product, exibir_icone: fa.lse -%}
           </div>
         {%- endif -%}
 
@@ -3083,3 +3083,13 @@
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- render 'installment', product: product, exibir_icone: fa''lse -%}"
+  to: "{%- render 'installment', product: product, exibir_icone: fa.lse -%}"
+  position: 19843..19911
+{% endcomment %}
